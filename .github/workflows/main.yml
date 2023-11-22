@@ -18,7 +18,7 @@ jobs:
   
   build:
     # The type of runner that the job will run on
-    runs-on: WUFT-Runner
+    runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -40,7 +40,7 @@ jobs:
   publish:
      
     # The type of runner that the job will run on
-    runs-on: WUFT-Runner
+    runs-on: self-hosted
     needs: [build]
     #environment:
       #name: test environment
@@ -57,7 +57,7 @@ jobs:
   removing_WebConfig:
       
     # The type of runner that the job will run on
-    runs-on: WUFT-Runner
+    runs-on: self-hosted
     needs: [publish]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -72,7 +72,7 @@ jobs:
   envirnoment_backup:
       
     # The type of runner that the job will run on
-    runs-on: WUFT-Runner
+    runs-on: self-hosted
     needs: [removing_WebConfig]
     environment:
       name: backuping files
@@ -94,7 +94,7 @@ jobs:
   deploy_Dev:
       
     # The type of runner that the job will run on
-    runs-on: label_emulation_qa
+    runs-on: self-hosted
     needs: [envirnoment_backup]
     environment:
       name: Dev environment
