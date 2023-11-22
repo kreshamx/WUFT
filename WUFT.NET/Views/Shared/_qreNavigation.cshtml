@@ -1,0 +1,22 @@
+﻿<div class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            @Html.ActionLink("WUFT", "Index", "QRE", new { area = "" }, new { @class = "navbar-brand" , @style="margin-top:8px;"})
+        </div>
+        <div><a class="navbar-logo" href="http://www.intel.com"></a></div>
+        <div class="navbar-collapse collapse">
+        
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("View", "Index", "QRE")</li>
+                    <li>@Html.ActionLink("Create", "Create", "QRE")</li>
+                    <li>@Html.ActionLink("Report", "Index", "Report")</li> 
+                </ul>
+        </div>
+
+    </div>
+</div>

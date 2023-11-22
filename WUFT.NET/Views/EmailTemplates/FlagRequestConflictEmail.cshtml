@@ -1,0 +1,417 @@
+﻿@model WUFT.NET.ViewModels.Emails.FlagRequestConflictEmailViewModel
+<html>
+<head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <style type=text/css>
+        BODY {
+            MIN-WIDTH: 100%;
+            PADDING-BOTTOM: 0px;
+            PADDING-TOP: 0px;
+            PADDING-LEFT: 0px;
+            MARGIN: 0px;
+            PADDING-RIGHT: 0px;
+            MSO-LINE-HEIGHT-RULE: exactly;
+        }
+
+        TABLE {
+            BORDER-COLLAPSE: collapse;
+            BORDER-SPACING: 0;
+        }
+
+        TD {
+            VERTICAL-ALIGN: top;
+            PADDING-BOTTOM: 0px;
+            PADDING-TOP: 0px;
+            PADDING-LEFT: 0px;
+            PADDING-RIGHT: 0px;
+        }
+
+        .spacer {
+            FONT-SIZE: 1px;
+            LINE-HEIGHT: 1px;
+        }
+
+        .border {
+            FONT-SIZE: 1px;
+            LINE-HEIGHT: 1px;
+        }
+
+        .spacer {
+            WIDTH: 100%;
+        }
+
+        IMG {
+            BORDER-LEFT-WIDTH: 0px;
+            BORDER-RIGHT-WIDTH: 0px;
+            BORDER-BOTTOM-WIDTH: 0px;
+            -MS-INTERPOLATION-MODE: bicubic;
+            BORDER-TOP-WIDTH: 0px;
+        }
+
+        .image {
+            MARGIN-BOTTOM: 24px;
+            FONT-SIZE: 12px;
+            mso-line-height-rule: at-least;
+        }
+
+            .image IMG {
+                DISPLAY: block;
+            }
+
+        .logo {
+            mso-line-height-rule: at-least;
+        }
+
+            .logo IMG {
+                DISPLAY: block;
+            }
+
+        STRONG {
+            FONT-WEIGHT: bold;
+        }
+
+        H1 {
+            MARGIN-TOP: 0px;
+        }
+
+        H2 {
+            MARGIN-TOP: 0px;
+        }
+
+        H3 {
+            MARGIN-TOP: 0px;
+        }
+
+        P {
+            MARGIN-TOP: 0px;
+        }
+
+        OL {
+            MARGIN-TOP: 0px;
+        }
+
+        UL {
+            MARGIN-TOP: 0px;
+        }
+
+        LI {
+            MARGIN-TOP: 0px;
+        }
+
+        OL {
+            PADDING-LEFT: 0px;
+        }
+
+        UL {
+            PADDING-LEFT: 0px;
+        }
+
+        LI {
+            PADDING-LEFT: 0px;
+        }
+
+        BLOCKQUOTE {
+            MARGIN-BOTTOM: 0px;
+            MARGIN-TOP: 0px;
+            PADDING-RIGHT: 0px;
+            MARGIN-RIGHT: 0px;
+        }
+
+        .column-top {
+            FONT-SIZE: 32px;
+            LINE-HEIGHT: 32px;
+        }
+
+        .column-bottom {
+            FONT-SIZE: 8px;
+            LINE-HEIGHT: 8px;
+        }
+
+        .column {
+            TEXT-ALIGN: left;
+        }
+
+        .contents {
+            WIDTH: 100%;
+            TABLE-LAYOUT: fixed;
+        }
+
+        .padded {
+            WORD-WRAP: break-word;
+            PADDING-LEFT: 32px;
+            PADDING-RIGHT: 32px;
+        }
+
+        .wrapper {
+            WIDTH: 100%;
+            MIN-WIDTH: 620px;
+            TABLE-LAYOUT: fixed;
+            -MS-TEXT-SIZE-ADJUST: 100%;
+            DISPLAY: table;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        TABLE.wrapper {
+            TABLE-LAYOUT: fixed;
+        }
+
+        .one-col {
+            WIDTH: 600px;
+            MARGIN-LEFT: auto;
+            MARGIN-RIGHT: auto;
+        }
+
+        .two-col {
+            WIDTH: 600px;
+            MARGIN-LEFT: auto;
+            MARGIN-RIGHT: auto;
+        }
+
+        .three-col {
+            WIDTH: 600px;
+            MARGIN-LEFT: auto;
+            MARGIN-RIGHT: auto;
+        }
+
+        .centered {
+            MARGIN-LEFT: auto;
+            MARGIN-RIGHT: auto;
+        }
+
+        .two-col .image {
+            MARGIN-BOTTOM: 23px;
+        }
+
+        .two-col .column-bottom {
+            FONT-SIZE: 9px;
+            LINE-HEIGHT: 9px;
+        }
+
+        .two-col .column {
+            WIDTH: 300px;
+        }
+
+        .three-col .image {
+            MARGIN-BOTTOM: 21px;
+        }
+
+        .three-col .column-bottom {
+            FONT-SIZE: 11px;
+            LINE-HEIGHT: 11px;
+        }
+
+        .three-col .column {
+            WIDTH: 200px;
+        }
+
+        .three-col .first .padded {
+            PADDING-LEFT: 32px;
+            PADDING-RIGHT: 16px;
+        }
+
+        .three-col .second .padded {
+            PADDING-LEFT: 24px;
+            PADDING-RIGHT: 24px;
+        }
+
+        .three-col .third .padded {
+            PADDING-LEFT: 16px;
+            PADDING-RIGHT: 32px;
+        }
+    </style>
+</head>
+<body style="MIN-WIDTH: 100%; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #e9e9e9; mso-line-height-rule: exactly">
+    <style type=text/css>
+        BODY {
+            BACKGROUND-COLOR: #e9e9e9;
+        }
+
+        .wrapper {
+            BACKGROUND-COLOR: #e9e9e9;
+        }
+
+        .emb-editor-canvas {
+            BACKGROUND-COLOR: #e9e9e9;
+        }
+
+        .border {
+            BACKGROUND-COLOR: #e9e9e9;
+        }
+
+        H1 {
+            COLOR: #565656;
+        }
+
+        .wrapper H1 {
+        }
+
+        .wrapper H1 {
+            FONT-FAMILY: sans-serif;
+        }
+
+        H1 {
+        }
+
+        .one-col H1 {
+            LINE-HEIGHT: 44px;
+        }
+
+        .two-col H1 {
+            LINE-HEIGHT: 32px;
+        }
+
+        .three-col H1 {
+            LINE-HEIGHT: 26px;
+        }
+
+        .wrapper .one-col-feature H1 {
+            LINE-HEIGHT: 58px;
+        }
+    </style>
+
+    <center class=wrapper style="WIDTH: 100%; box-shadow:  5px 5px 20px 3px rgba(0,0,0,0.5); MIN-WIDTH: 620px; TABLE-LAYOUT: fixed; -MS-TEXT-SIZE-ADJUST: 100%; DISPLAY: table; BACKGROUND-COLOR: #e9e9e9; -webkit-text-size-adjust: 100%">
+        <table class=gmail style="WIDTH: 650px; BORDER-COLLAPSE: collapse; MIN-WIDTH: 650px; BORDER-SPACING: 0;">
+            <tbody>
+                <tr>
+                    <td style="FONT-SIZE: 1px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LINE-HEIGHT: 1px; PADDING-RIGHT: 0px">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="preheader centered" style="BORDER-COLLAPSE: collapse; MARGIN-LEFT: auto; BORDER-SPACING: 0; MARGIN-RIGHT: auto">
+            <tbody>
+                <tr>
+                    <td style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">
+                        <table style="WIDTH: 602px; BORDER-COLLAPSE: collapse; BORDER-SPACING: 0">
+                            <tbody>
+                                <tr>
+                                    <td class="title" style="FONT-SIZE: 12px; FONT-FAMILY: sans-serif; VERTICAL-ALIGN: top; COLOR: #565656; PADDING-BOTTOM: 12px; TEXT-ALIGN: left; PADDING-TOP: 10px; PADDING-LEFT: 0px; LINE-HEIGHT: 21px; PADDING-RIGHT: 0px">New Request Conflict with existing @Model.Disposition Request</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="header centered" style="WIDTH: 602px; BORDER-COLLAPSE: collapse; MARGIN-LEFT: auto; BORDER-SPACING: 0; MARGIN-RIGHT: auto">
+            <tbody>
+                <tr>
+                    <td class=border style="FONT-SIZE: 1px; WIDTH: 1px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LINE-HEIGHT: 1px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffd800">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class=centered style="BORDER-COLLAPSE: collapse; MARGIN-LEFT: auto; BORDER-SPACING: 0; MARGIN-RIGHT: auto; box-shadow:  5px 5px 20px 3px rgba(0,0,0,0.5)">
+            <tbody>
+                <tr>
+                    <td class=border style="FONT-SIZE: 1px; WIDTH: 1px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LINE-HEIGHT: 1px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffffff">​</td>
+                    <td style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">
+                        <table class=one-col style="FONT-SIZE: 14px; WIDTH: 600px; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; MARGIN-LEFT: auto; BORDER-SPACING: 0; BACKGROUND-COLOR: #ffffff; MARGIN-RIGHT: auto">
+                            <tbody>
+                                <tr>
+                                    <td class=column style="VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px">
+                                        <div>
+                                            <div class=column-top style="FONT-SIZE: 32px; LINE-HEIGHT: 32px">&nbsp;</div>
+                                        </div>
+                                        <table class=contents style="WIDTH: 100%; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; BORDER-SPACING: 0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class=padded style="WORD-WRAP: break-word; VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 32px; PADDING-RIGHT: 32px">
+                                                        <h1 style="MARGIN-BOTTOM: 18px; FONT-SIZE: 36px; FONT-FAMILY: sans-serif; FONT-WEIGHT: 700; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 44px">New Request Conflict with existing @Model.Disposition Request</h1>
+                                                        <p style="MARGIN-BOTTOM: 24px; FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong>Note:</strong> This notification is to inform @Model.NewRequestor that the request you just submitted was not created due to a conflict detected with an existing warehouse @Model.Disposition request.
+                                                        </p>
+                                                        <p style="MARGIN-BOTTOM: 24px; FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong>Action Owner:</strong> @Model.NewRequestor
+                                                        </p>
+                                                        <p style="MARGIN-BOTTOM: 24px; FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            @if (Model.NewRequestor != Model.OriginalRequestor)
+                                                            {
+                                                                var actionRequeiredText = "Review your Warehouse {0} request and if necessary contact {1}, to coordinate a corretion to their request.";
+                                                                <strong>Action Required:</strong> @(String.Format(actionRequeiredText, Model.Disposition, Model.OriginalRequestor));
+                                                            }
+                                                            else
+                                                            {
+                                                                var actionRequeiredText = "Review your Warehouse {0} request and if necessary submit a correction under the previous MRB ID releasing the units in conflict.";
+                                                                <strong>Action Required:</strong> @(String.Format(actionRequeiredText, Model.Disposition));
+                                                            }
+                                                        </p>                                                      
+                                                        <p style="MARGIN-BOTTOM: 24px; FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong>Previous Request Information:</strong>
+                                                            <br />                                                         
+                                                            Previous Request MRB: @Model.OriginalMRBID                                                           
+                                                            <br />
+                                                            Previous Requestor: @Model.OriginalRequestor
+                                                            <br />
+                                                            Previous Request Link: <a href="@Model.URL">View Request</a>
+                                                        </p>
+
+                                                        <p style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong>Conflicting Units Summary:</strong>
+                                                        </p>
+                                                        @*<p style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong style="FONT-SIZE: 14px;"> PREVIOUS REQUEST</strong>
+                                                                <table style="width:500px;border: 2px solid #ddd;">
+                                                                    <thead>
+                                                                        <tr style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656;">
+                                                                            <th id="th1" style="border: 2px solid #ddd;"><strong>MRB ID</strong></th>
+                                                                            <th id="th2" style="border: 2px solid #ddd;"><strong>Requestor</strong></th>
+                                                                            <th id="th3" style="border: 2px solid #ddd;"><strong>Warehouse</strong></th>
+                                                                            <th id="th4" style="border: 2px solid #ddd;"><strong>Number of conflicting units</strong></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656;">
+                                                                            <td headers="th1" style="border: 2px solid #ddd;text-align: center;">@Model.OriginalMRBID</td>
+                                                                            <td headers="th2" style="border: 2px solid #ddd;text-align: center;">@Model.OriginalRequestor</td>
+                                                                            <td headers="th3" style="border: 2px solid #ddd;text-align: center;">@Model.WarehouseName</td>
+                                                                            <td headers="th4" style="border: 2px solid #ddd;text-align: center;">@Model.ConflictVisualIDList.Count</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+</p>*@
+                                                        <br />
+                                                        <p style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656; MARGIN-TOP: 0px; LINE-HEIGHT: 24px">
+                                                            <strong style="FONT-SIZE: 14px;">CONFLICTING SUBSTRATE VISUAL IDS</strong>
+                                                            <table style="width:500px;border: 2px solid #ddd;">
+                                                                <thead>
+                                                                    <tr style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656;">
+                                                                        <th id="th1" style="border: 2px solid #ddd;"><strong>Conflicting Units</strong></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach (var visualid in Model.ConflictVisualIDList)
+                                                                    {
+                                                                        <tr style="FONT-SIZE: 16px; FONT-FAMILY: sans-serif; COLOR: #565656;">
+                                                                            <td headers="th1" style="border: 2px solid #ddd;text-align: center;">@visualid</td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                            </p>
+
+</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div>
+                                            <div class=column-top style="FONT-SIZE: 32px; LINE-HEIGHT: 32px">&nbsp;</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="header centered" style="WIDTH: 602px; BORDER-COLLAPSE: collapse; MARGIN-LEFT: auto; BORDER-SPACING: 0; MARGIN-RIGHT: auto">
+            <tbody>
+                <tr>
+                    <td class=border style="FONT-SIZE: 1px; WIDTH: 1px; VERTICAL-ALIGN: top; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; LINE-HEIGHT: 1px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #ffd800">&nbsp;</td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
+

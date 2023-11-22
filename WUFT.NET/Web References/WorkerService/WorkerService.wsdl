@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://cdis.intel.com/cdiswebservice/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://cdis.intel.com/cdiswebservice/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://cdis.intel.com/cdiswebservice/">
+      <s:element name="GetWorkerDetailByIDSID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailByIDSIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorkerDetailByIDSIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByIDSID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="idsid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByIDSIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWorkerDetailsByIDSIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSignatureAuthorityListByWWID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wwid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSignatureAuthorityListByWWIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSignatureAuthorityListByWWIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailsByMgrWWID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wwid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailsByMgrWWIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorkerDetailsByMgrWWIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByMgrWWID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wwid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByMgrWWIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWorkerDetailsByMgrWWIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailByWWID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wwid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailByWWIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorkerDetailByWWIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByWWID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wwid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByWWIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWorkerDetailsByWWIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkerDetailByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorkerDetailByNameResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkerDetailsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWorkerDetailsByNameResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWorkerDetailByIDSIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByIDSID" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByIDSIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByIDSIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByIDSID" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByIDSIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSignatureAuthorityListByWWID" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSignatureAuthorityListByWWIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailsByMgrWWID" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailsByMgrWWIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByMgrWWID" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByMgrWWIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByWWID" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByWWIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByWWID" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByWWIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByName" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkerDetailByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByName" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWorkerDetailsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByIDSIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="idsid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByIDSIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="idsid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByIDSIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="idsid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByIDSIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="idsid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByIDSIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSignatureAuthorityListByWWIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailsByMgrWWIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByMgrWWIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByWWIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="wwid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByWWIDHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkerDetailByNameHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkerDetailsByNameHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="WorkerServiceSoap">
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByIDSIDSoapIn" />
+      <wsdl:output message="tns:GetWorkerDetailByIDSIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByIDSIDSoapIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByIDSIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of signature authorities based on WWID</documentation>
+      <wsdl:input message="tns:GetSignatureAuthorityListByWWIDSoapIn" />
+      <wsdl:output message="tns:GetSignatureAuthorityListByWWIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailsByMgrWWIDSoapIn" />
+      <wsdl:output message="tns:GetWorkerDetailsByMgrWWIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of the workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByMgrWWIDSoapIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByMgrWWIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on wwid</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByWWIDSoapIn" />
+      <wsdl:output message="tns:GetWorkerDetailByWWIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to all the details of a worker based on WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByWWIDSoapIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByWWIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByNameSoapIn" />
+      <wsdl:output message="tns:GetWorkerDetailByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByNameSoapIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WorkerServiceHttpGet">
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByIDSIDHttpGetIn" />
+      <wsdl:output message="tns:GetWorkerDetailByIDSIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByIDSIDHttpGetIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByIDSIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of signature authorities based on WWID</documentation>
+      <wsdl:input message="tns:GetSignatureAuthorityListByWWIDHttpGetIn" />
+      <wsdl:output message="tns:GetSignatureAuthorityListByWWIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailsByMgrWWIDHttpGetIn" />
+      <wsdl:output message="tns:GetWorkerDetailsByMgrWWIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of the workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByMgrWWIDHttpGetIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByMgrWWIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on wwid</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByWWIDHttpGetIn" />
+      <wsdl:output message="tns:GetWorkerDetailByWWIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to all the details of a worker based on WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByWWIDHttpGetIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByWWIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByNameHttpGetIn" />
+      <wsdl:output message="tns:GetWorkerDetailByNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByNameHttpGetIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByNameHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WorkerServiceHttpPost">
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByIDSIDHttpPostIn" />
+      <wsdl:output message="tns:GetWorkerDetailByIDSIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of a worker based on IDSID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByIDSIDHttpPostIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByIDSIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of signature authorities based on WWID</documentation>
+      <wsdl:input message="tns:GetSignatureAuthorityListByWWIDHttpPostIn" />
+      <wsdl:output message="tns:GetSignatureAuthorityListByWWIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get the list of workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetWorkerDetailsByMgrWWIDHttpPostIn" />
+      <wsdl:output message="tns:GetWorkerDetailsByMgrWWIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to get all the details of the workers based on Manager WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByMgrWWIDHttpPostIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByMgrWWIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on wwid</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByWWIDHttpPostIn" />
+      <wsdl:output message="tns:GetWorkerDetailByWWIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to all the details of a worker based on WWID</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByWWIDHttpPostIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByWWIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetWorkerDetailByNameHttpPostIn" />
+      <wsdl:output message="tns:GetWorkerDetailByNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows us to search for workers based on name string</documentation>
+      <wsdl:input message="tns:GetAllWorkerDetailsByNameHttpPostIn" />
+      <wsdl:output message="tns:GetAllWorkerDetailsByNameHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WorkerServiceSoap" type="tns:WorkerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetWorkerDetailByIDSID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetAllWorkerDetailsByIDSID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetSignatureAuthorityListByWWID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetWorkerDetailsByMgrWWID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetAllWorkerDetailsByMgrWWID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetWorkerDetailByWWID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetAllWorkerDetailsByWWID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetWorkerDetailByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <soap:operation soapAction="http://cdis.intel.com/cdiswebservice/GetAllWorkerDetailsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkerServiceHttpGet" type="tns:WorkerServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <http:operation location="/GetWorkerDetailByIDSID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <http:operation location="/GetAllWorkerDetailsByIDSID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <http:operation location="/GetSignatureAuthorityListByWWID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <http:operation location="/GetWorkerDetailsByMgrWWID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <http:operation location="/GetAllWorkerDetailsByMgrWWID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <http:operation location="/GetWorkerDetailByWWID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <http:operation location="/GetAllWorkerDetailsByWWID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <http:operation location="/GetWorkerDetailByName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <http:operation location="/GetAllWorkerDetailsByName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkerServiceHttpPost" type="tns:WorkerServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetWorkerDetailByIDSID">
+      <http:operation location="/GetWorkerDetailByIDSID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByIDSID">
+      <http:operation location="/GetAllWorkerDetailsByIDSID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignatureAuthorityListByWWID">
+      <http:operation location="/GetSignatureAuthorityListByWWID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailsByMgrWWID">
+      <http:operation location="/GetWorkerDetailsByMgrWWID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByMgrWWID">
+      <http:operation location="/GetAllWorkerDetailsByMgrWWID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByWWID">
+      <http:operation location="/GetWorkerDetailByWWID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByWWID">
+      <http:operation location="/GetAllWorkerDetailsByWWID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerDetailByName">
+      <http:operation location="/GetWorkerDetailByName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkerDetailsByName">
+      <http:operation location="/GetAllWorkerDetailsByName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WorkerService">
+    <wsdl:port name="WorkerServiceSoap" binding="tns:WorkerServiceSoap">
+      <soap:address location="https://vews001.intel.com/CdisWebService/WorkerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkerServiceHttpGet" binding="tns:WorkerServiceHttpGet">
+      <http:address location="https://vews001.intel.com/CdisWebService/WorkerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WorkerServiceHttpPost" binding="tns:WorkerServiceHttpPost">
+      <http:address location="https://vews001.intel.com/CdisWebService/WorkerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

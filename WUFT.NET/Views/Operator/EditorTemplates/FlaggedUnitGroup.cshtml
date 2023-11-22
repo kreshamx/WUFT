@@ -1,0 +1,30 @@
+﻿@model WUFT.NET.ViewModels.Operator.FlaggedUnitGroup
+
+<tr class="pull-center">
+    <td>
+        <p class="div-barcode center-block">*@Html.DisplayFor(x => x.LotID)*</p>
+        <p>@Html.DisplayFor(x=>x.LotID)</p>
+    </td>
+    <td>
+        <p class="div-barcode center-block margin10TB">*@Html.DisplayFor(x => x.BoxID)*</p>
+        <p>@Html.DisplayFor(x=>x.BoxID)</p>
+    </td>
+    @if (!String.IsNullOrEmpty(Model.UnmergeLotID))
+    {
+        <td>
+            <p class="div-barcode center-block margin10TB">*@Html.DisplayFor(x => x.UnmergeLotID)*</p>
+            <p>@Html.DisplayFor(x=>x.UnmergeLotID)</p>
+        </td>
+    }
+    <td>
+        <p class="center-block margin10TB">@Html.DisplayFor(x => x.Quantity)</p>
+    </td>
+    <td>
+        <p class="center-block margin10TB">@Html.DisplayFor(x=>x.BoxRequestStatus)</p>
+    </td>
+</tr>
+
+
+
+
+

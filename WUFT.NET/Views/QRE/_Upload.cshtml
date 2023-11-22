@@ -1,0 +1,56 @@
+﻿@model WUFT.NET.ViewModels.QRE.UploadRequestViewModel
+
+
+
+@using (Html.BeginForm("UploadFile", "QRE", FormMethod.Post, new { @id = "createRequestForm", enctype = "multipart/form-data" }))
+{
+
+    <div class="block block-default">
+        <p><span style="font-weight:bold;">Step 1: </span>Input the MRB Number from SPEED for this request.</p>
+        <p><span style="font-weight:bold;">Step 2: </span>Select a file containing units you want to flag.</p>
+        <p>
+            <span style="font-weight:bold;">File Requirements:</span>
+            <ul>
+                <li>File type is xls, xlsx, or csv</li>
+                <li>Required column headers are LOT ID, BOX ID, VISUAL ID, WAREHOUSE, FPO LOT ID (for Unmerge only) and DISPOSITION</li>
+                <li>No fields can be left blank. EXCEPT fields in the FPO LOT ID column for 8 (Scrap) requests.</li>             
+                <li>Choices for disposition are <span style="font-weight:bold;">8 (Scrap), or 9 (Release)</span></li>
+                @if (Model.MaxUploadUnits > 0)
+                {
+                    <li>Files are limited to @Model.MaxUploadUnits.ToString("N0") units.</li>}
+            </ul>
+        </p>
+        <p>
+            <span style="font-weight:bold;">Important Note:</span><br />
+            <ul>
+                <li><strong style="color:red">This tool does not validate the data that you provide. You own any business impact caused by the submission of incorrect data.</strong></li>
+            </ul>
+</p>
+        <p>Please use this <a href="~/Files/WUFT Sample Upload File.xlsx">sample file</a> as a starting point.</p>
+    </div>
+    if (Model.ErrorList.Count > 0)
+    {
+        <div class="panel panel-danger highlight-danger">
+            <div class="panel-body">
+                <p style="font-weight:bold;">There are errors in the input file. No units were submitted. Please fix the file and upload it again.</p>
+                @Html.DisplayFor(model => model.ErrorList)
+            </div>
+        </div>
+    }
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(model => model.MRBID)
+        @Html.TextBoxFor(model => model.MRBID, new { @placeholder = "1234567/12345678", @class = "form-control", @id="mrb" })
+        @Html.ValidationMessageFor(model => model.MRBID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.File)
+        @Html.TextBoxFor(model => model.File, new { @type = "file", @class = "form-control", @name = "file", @id="file" })
+        @Html.ValidationMessageFor(model => model.File)
+    </div>
+    <div class="pull-center">
+        <button type="button" class="btn btn-default" onclick="cancelUpload()">cancel</button>
+        <button type="submit" id="submitBtn" disabled onclick="showLoading()" class="btn btn-primary">process file</button>
+    </div>
+}
+

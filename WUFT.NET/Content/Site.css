@@ -1,0 +1,145 @@
+﻿.increaseMe {
+    font-size: 1.0em;
+}
+
+.increaseMe2 {
+    font-size: 2.0em;
+}
+
+.increaseMe3 {
+    font-size: 3.0em;
+}
+
+.highlightRow {
+    background-color: rgba(179, 238, 51, 0.6) !important;
+    -moz-transition: background-color linear 0.1s;
+    -o-transition: background-color linear 0.1s;
+    -webkit-transition: background-color linear 0.1s;
+    transition: background-color linear 0.1s;
+}
+
+.margin10{
+    margin: 10px;
+}
+.margin10TB{
+    margin: 10px 0;
+}
+
+.margin20TB{
+    margin: 20px 0;
+}
+
+.margin10LR{
+    margin:0 10px;
+}
+.clear-fix{
+    clear:both;
+}
+
+.orange-border{
+    border: 1px solid #FFA300; 
+}
+
+.orange-text{
+    color: #FFA300;
+}
+
+/*--------------------------------------------------BOOTSTRAP OVERRIDES-------------------------------------------------------*/
+.btn-primary{
+    background-color:#0071c5;
+}
+
+/*--------------------------------------------------ACCESS DENIED PAGE--------------------------------------------------------*/
+.access-denied {
+    background-image: url('../Images/Access-Denied.jpg');
+    background-repeat: no-repeat;
+    background-size: 30% 30%;
+    height: 600px;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/*--------------------------------------------------TABLE STYLE---------------------------------------------------------------*/
+td{
+    vertical-align:middle !important;
+}
+
+/*--------------------------------------------------SORT STYLE----------------------------------------------------------------*/
+
+.sort {
+  text-decoration: none;
+  height:30px;
+  cursor:pointer;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:rgba(196,214,0,0.8);
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #000;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
+}
+
+/*--------------------------------------------------BARCODE STYLE----------------------------------------------------------------*/
+
+@font-face{
+    font-family:'Barcode';
+    src: url('/fonts/IDAutomationHC39M_FREE.otf');
+}
+
+.font-barcode { font-family: 'Barcode', 'Georgia', serif; }
+
+.div-barcode {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: 'Barcode', 'Georgia', serif;
+    font-size: 10px;
+}
+
+div.barcodes-page{
+   page-break-after: always; 
+   page-break-inside: avoid;
+}
+
+div.barcodes-page:last-child{
+   page-break-after: auto; 
+   page-break-inside: avoid;
+}
+
+.icon {
+    font-size: 2.5em; 
+    color:#0071c5;
+}

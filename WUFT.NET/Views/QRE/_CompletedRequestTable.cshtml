@@ -1,0 +1,59 @@
+﻿@model List<WUFT.NET.ViewModels.QRE.FlaggedBoxLineItem>
+
+@{
+    var requestType = String.IsNullOrEmpty(Model.FirstOrDefault().UnmergeLotID) ? "Scrap" : "Unmerge";
+}
+<div style="width:90%; margin: 0 auto;">
+    <h3>@requestType Boxes (@Model.Count)</h3>
+</div>
+
+<table class="table table-bordered table-striped table-hover" style="width:90%; margin:0 auto;">
+    <thead>
+        <tr>
+            <th class="pull-center" style="vertical-align:middle">Box Status</th>
+            <th class="pull-center" style="vertical-align:middle">Good Box ID</th>
+            <th class="pull-center" style="vertical-align:middle">Good Lot ID</th>
+            <th class="pull-center" style="vertical-align:middle">@requestType Box ID</th>
+            @if (requestType == "Unmerge")
+            {
+                <th class="pull-center" style="vertical-align:middle">FPO Lot ID</th>
+            }
+            <th class="pull-center" style="vertical-align:middle">Bad Box Unit Qty</th>
+            <th class="pull-center" style="vertical-align:middle">Visual ID</th>
+            <th class="pull-center" style="vertical-align:middle">Unit Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count == 0)
+            {
+            <tr class="pull-center">
+                <td colspan="3">No flagged boxes in this request!</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var box in Model)
+            {
+                for (var i = 0; i < box.VisualIDs.Count; i++)
+                {
+                    <tr>
+                        @if (i == 0)
+                        {
+                            <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.BoxRequestStatus)</td>
+                            <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.GoodBoxID)</td>
+                            <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.LotID)</td>
+                            <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.BadBoxID)</td>
+                            if (!String.IsNullOrEmpty(box.UnmergeLotID))
+                            {
+                                <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.UnmergeLotID)</td>
+                            }
+                            <td class="pull-center" style="vertical-align:middle" rowspan="@box.VisualIDs.Count">@Html.DisplayFor(x => box.BadVisualIDCount)</td>
+                        }
+                        <td class="pull-center" style="vertical-align:middle">@Html.DisplayFor(x => box.VisualIDs[i].Key)</td>
+                        <td class="pull-center" style="vertical-align:middle">@Html.DisplayFor(x => box.VisualIDs[i].Value)</td>
+                    </tr>
+                }
+            }
+        }
+    </tbody>
+</table>

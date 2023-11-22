@@ -1,0 +1,21 @@
+﻿@model WUFT.NET.ViewModels.Shared.RequestLineItemViewModel
+
+<tr class="pull-center Row" style="display:none;" data-warehouse=@Html.DisplayFor(x => x.Warehouse)>
+    @Html.HiddenFor(x => x.RequestID)
+    <td>@Html.CheckBoxFor(x => x.Selected, new { @class = "selectRequest cursor-pointer", data_requestid = Model.RequestID })</td>
+    <td class="MRBID">@Html.DisplayFor(x => x.MRBID, "StringToInt")</td>
+    <td class="LotID">@Html.DisplayFor(x => x.LotIDs)</td>
+    @*<td class="UnmergeLotID">@Html.DisplayFor(x => x.UnmergeLotIDs)</td>*@  @*FS-INC100005770*@
+    <td class="BoxID">@Html.DisplayFor(x => x.BoxIDs)</td>
+    <td class="UnitQty">@Html.DisplayFor(x => x.UnitQty)</td>
+    <td class="Disposition">@Html.DisplayFor(x => x.Disposition)</td>
+    <td class="BoxQty">@Html.DisplayFor(x => x.BoxQty)</td> <!--vsharm6x : TASK7720599-->
+    <td class="Warehouse">@Html.DisplayFor(x => x.Warehouse)</td>
+    <td class="Requestor">@Html.DisplayFor(x => x.Requestor)</td>
+    <td class="RequestDate">@Html.DisplayFor(x => x.CreatedOn, "DateTime")</td>
+    <td class="RequestStatus">@Html.DisplayFor(x => x.OriginalRequestStatus)</td>
+    <td><span class="cursor-pointer glyphicon glyphicon glyphicon-list-alt icon" aria-hidden="true" onclick="showLoading();window.location.href='@Url.Action("ViewRequest", "Operator", new {@id= Model.RequestID })'"></span></td>
+    @*<td class="OriginalMRB">@Html.DisplayFor(x => x.OriginalMRB)</td>*@
+</tr>
+
+

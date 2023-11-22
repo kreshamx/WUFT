@@ -1,0 +1,169 @@
+﻿@model WUFT.NET.ViewModels.QRE.ErrorViewModel
+
+@{
+    ViewBag.Title = "QRE Request Error";
+}
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="intel-panel intel-panel-top-peel ">
+        <div class="intel-panel-heading pull-center">
+            <h3>An Error Has Occurred</h3>
+        </div>
+        <div class="intel-panel-body pull-center">
+            <div class="block block-default">
+                <p class="label-warning pull-center">
+                    <h3 class="text-red">@Model.Message
+                    </h3>
+                    @if(!String.IsNullOrEmpty(Model.AdditionalMessage))
+                    {
+                        <h5>@Model.AdditionalMessage
+                        </h5>
+                    }
+                    @if(Model.ProvideSupportURL)
+                    {
+                        <h3>
+                            <br />
+                            <a href="@Model.SupportURL">Open a Support Request</a>
+                        </h3>
+                    }
+
+                    @if (Model.SubstrateList != null)
+                    {
+                        if (Model.ErrorCode == 6000)
+                        {
+                            <div class="row">
+                                <p style="font-size: 1.5em; margin-bottom: 10px;">Box Number: @Model.BoxNumber, MRB: @Model.SubstrateList.FirstOrDefault().Value, Disposition: @Model.Disposition</p>
+                            </div>
+                    <div class="row">
+                        <table class="table table-bordered table-striped table-hover" style="width: 30%; margin: 0 auto;">
+                            <thead>
+                                <tr>
+                                    <th class="pull-center" style="vertical-align: middle">Substrate Visual ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in Model.SubstrateList)
+                                {
+                                            <tr class="pull-center">
+                                                <td>@row.Key</td>
+                                            </tr>
+                                }
+                                        @if (Model.SubstrateList.Count >= 50)
+                                        {
+                                            <tr class="pull-center">
+                                                <td colspan="2">Limited to 50 substrate visual ids, more may exist.
+                                                </td>
+                                            </tr>
+                                        }
+                            </tbody>
+                        </table>
+                    </div>
+                        }
+                        else if (Model.ErrorCode == 7000)
+                        {
+                            <div class="row">
+                                <p style="font-size: 1.5em; margin-bottom: 10px;">Box Number: @Model.BoxNumber, MRB: @Model.SubstrateList.FirstOrDefault().Value, Disposition: @Model.Disposition</p>
+                            </div>
+                    <div class="row">
+                        <table class="table table-bordered table-striped table-hover" style="width: 30%; margin: 0 auto;">
+                            <thead>
+                                <tr>
+                                    <th class="pull-center" style="vertical-align: middle">Substrate Visual ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var row in Model.SubstrateList)
+                                {
+                                            <tr class="pull-center">
+                                                <td>@row.Key</td>
+                                            </tr>
+                                }
+                                        @if (Model.SubstrateList.Count >= 50)
+                                        {
+                                            <tr class="pull-center">
+                                                <td colspan="2">Limited to 50 substrate visual ids, more may exist.
+                                                </td>
+                                            </tr>
+                                        }
+                            </tbody>
+                        </table>
+                    </div>
+                        }
+
+                        else if (Model.SubstrateLists.Count > 0)
+                        {                            
+                         <div class="row">
+                            <div class="row">
+                                <table class="table table-bordered table-striped table-hover" style="width: 90%; margin: 0 auto;">
+                                    <thead>
+                                        <tr>                                        
+                                            <th class="pull-center" style="vertical-align: middle">Conflict BOX ID</th>
+                                            <th class="pull-center" style="vertical-align: middle">Conflict User ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var row in Model.SubstrateLists)
+                                        {                                           
+                                            <tr class="pull-center">
+                                                <td>@row.Key.ToString().Split('_')[0]</td>
+                                                <td>@row.Value.ToString().Split('_')[0]</td>
+                                            </tr>  
+                                        }                                        
+                                        @if (Model.SubstrateList.Count >= 50)
+                                        {
+                                            <tr class="pull-center">
+                                                <td colspan="2">Limited to 50 substrate visual ids, more may exist.
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>               
+                        </div>
+                      }
+                        else
+                        {
+                            <div class="row">
+                                <table class="table table-bordered table-striped table-hover" style="width: 90%; margin: 0 auto;">
+                                    <thead>
+                                        <tr>
+                                            <th class="pull-center" style="vertical-align: middle">MRB Number</th>
+                                            <th class="pull-center" style="vertical-align: middle">Substrate Visual ID</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var row in Model.SubstrateList)
+                                        {
+                                            <tr class="pull-center">
+                                                <td>@row.Value</td>
+                                                <td>@row.Key</td>
+                                            </tr>
+                                        }
+                                        @if (Model.SubstrateList.Count >= 50)
+                                        {
+                                            <tr class="pull-center">
+                                                <td colspan="2">Limited to 50 substrate visual ids, more may exist.
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    }
+                </p>
+                <br />
+                @if (Model.ErrorCode == 6000)
+                {
+                    <button type="button" class="btn btn-default btn-lg" onclick="okError()">cancel current request</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="combineRequests('@Model.QRELoadJobID','@Model.MRBID')">combine requests</button>
+
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary btn-lg" onclick="okError()">ok</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

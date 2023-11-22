@@ -1,0 +1,80 @@
+﻿@model WUFT.NET.ViewModels.Shared.RequestIndexParentViewModel
+
+@{
+    ViewBag.Title = "Operator";
+}
+
+<div class="row">
+    @*comment*@
+    @using (Html.BeginForm("ExportList", "File", FormMethod.Post, new { onsubmit = "setStringList()", enctype = "multipart/form-data", @id = "OperatorIndex" }))
+    {
+        @Html.HiddenFor(model => model.IdList, new { @id = "idList" })
+        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+                <div class="row margin10TB">
+                    <div class="pull-left">
+                        <label>Warehouse: </label>
+                        <div class="btn-group" role="group" aria-label="...">
+                            @Html.DropDownListFor(model => model.SelectedWarehouse, Model.Warehouses, null, new { @id = "warehouseFilter", @class = "ddlFilter btn btn-default", data_attribute = "warehouse" })
+                        </div>
+                    </div>
+                    @*<button class="btn btn-primary pull-right margin10TB" id="expRep" name="btnRep" type="submit" runat="server" style="display:none;">
+                        <span class="glyphicon glyphicon-save icon" style="color: white; font-size: 1.1em; margin-right: 10px;" aria-hidden="true"></span>Export Selected Request(s)
+                    </button>*@
+                    <button class="btn btn-primary pull-right" type="submit" name="btnRep">
+                        <span class="glyphicon glyphicon-save icon" style="color:white; font-size:1.1em; margin-right:10px;" aria-hidden="true"></span>Export Selected Request(s)
+                    </button>
+                </div>
+            </div>
+
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>All Unit Flag Requests</h3>
+                </div>
+                <div class="intel-panel-body" id="requestTable">
+                    <input class="search form-control" style="margin-bottom:10px" placeholder="search by event ID, box ID, lot ID, disposition, warehouse, requestor, or status" />
+                    <table id="operatorRequestTable" class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="pull-center" style="vertical-align:middle">Select<input style="margin-left:5px;" type="checkbox" id="operatorSelectAll" /></th>
+                                <th class="pull-center sort" data-sort="MRBID" style="vertical-align:middle">MRB Number</th>
+                                <th class="pull-center sort" data-sort="BoxID" style="vertical-align:middle">Lot IDs</th>
+                                @*<th class="pull-center sort" data-sort="UnmergeLotID" style="vertical-align:middle">Unmerge Lot IDs</th>*@
+                                <th class="pull-center sort" data-sort="LotID" style="vertical-align:middle">Box IDs</th>
+                                <th class="pull-center sort" data-sort="UnitQty" style="vertical-align:middle">Unit Qty</th>
+                                <th class="pull-center sort" data-sort="Disposition" style="vertical-align:middle">Disposition</th>
+                                <th class="pull-center sort" data-sort="BoxQty" style="vertical-align: top">Box Qty</th> <!--vsharm6x : TASK7720599 -->
+                                <th class="pull-center sort" data-sort="Warehouse" style="vertical-align:middle">Warehouse</th>
+                                <th class="pull-center sort" data-sort="Requestor" style="vertical-align:middle">Requestor</th>
+                                <th class="pull-center sort" data-sort="RequestDate" style="vertical-align:middle">Request Date</th>
+                                <th class="pull-center sort" data-sort="RequestStatus" style="vertical-align:middle">Request Status</th>
+                                <th class="pull-center" style="vertical-align:middle">Details</th>
+                                <th class="pull-center sort" data-sort="OriginalMRB" style="vertical-align: top; display:none">Original MRB</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @if (Model.Requests.Count == 0)
+                            {
+                                <tr class="pull-center">
+                                    <td colspan="10">No Requests!</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.Requests)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            SIN JQuery
+            document.getElementById('divTest').style.display = "none";
+
+            CON JQuery
+            $('#divTest').hide();
+        </script>
+    }
+
+</div>

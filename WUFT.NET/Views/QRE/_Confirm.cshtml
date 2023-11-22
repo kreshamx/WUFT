@@ -1,0 +1,16 @@
+﻿@model WUFT.NET.ViewModels.QRE.ConfirmRequestViewModel
+
+@using (Html.BeginForm("Create", "QRE", FormMethod.Post, new { @id = "confirmForm", enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.QRELoadJobID)
+    @Html.HiddenFor(model => model.MRBID)
+    @Html.DisplayFor(model => model.UploadUnits)
+    
+    <div class="pull-center">
+        <button type="button" class="btn btn-default" onclick="cancelConfirmation()">cancel</button>
+        <button type="submit" onclick="showLoading()" class="btn btn-primary"
+                @{if (Model.ErrorList.Count > 0) {     @: disabled="disabled"
+                                }  }>confirm</button>
+
+    </div>
+}

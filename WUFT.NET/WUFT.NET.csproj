@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61832651-4A76-4802-9341-6B29DF5E7297}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WUFT.NET</RootNamespace>
+    <AssemblyName>WUFT.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.2.13.0.0\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.1.0.9, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net45\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Elmah, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Elmah.1.1.1\lib\net40\Glimpse.Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Glimpse.Mvc5, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.Mvc5.1.5.3\lib\net45\Glimpse.Mvc5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HangFire.Core.1.4.5\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HangFire.SqlServer.1.4.5\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=3.2.1.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Extended, Version=3.2.1.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Extended.3.2.1\lib\net45-full\NLog.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharedCodeLibrary.Core.Services.Logging, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedCodeLibrary.Core.Services.Logging.1.0.9\lib\net45\SharedCodeLibrary.Core.Services.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharedCodeLibrary.Core.Services.Logging.Web, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedCodeLibrary.Core.Services.Logging.Web.1.0.2\lib\net45\SharedCodeLibrary.Core.Services.Logging.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharedCodeLibrary.Email, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedCodeLibrary.Email.1.0.0\lib\net45\SharedCodeLibrary.Email.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharedCodeLibrary.Email.RazorTemplate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharedCodeLibrary.Email.RazorTemplate.1.0.0.4\lib\net45\SharedCodeLibrary.Email.RazorTemplate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\clsLDAP_Authentication.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\XMLController.cs" />
+    <Compile Include="filters\ActionFilterAttribute.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OperatorController.cs" />
+    <Compile Include="Controllers\QREController.cs" />
+    <Compile Include="filters\CustomErrorHandlerFilter.cs" />
+    <Compile Include="filters\RestAPIAttribute.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="logperformance.cs" />
+    <Compile Include="Mappers\ECDWarehouseDemix_CSVMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Util\ClientTimeZoneHelper.cs" />
+    <Compile Include="Util\DBMaintance.cs" />
+    <Compile Include="Util\EnumHelper.cs" />
+    <Compile Include="Util\ISEPrincipal.cs" />
+    <Compile Include="Util\PersonHelper.cs" />
+    <Compile Include="Util\SecurityAttribute.cs" />
+    <Compile Include="Util\VersionHelper.cs" />
+    <Compile Include="ViewModels\Admin\FlaggedBoxLineItem.cs" />
+    <Compile Include="ViewModels\Admin\ViewRequestViewModel.cs" />
+    <Compile Include="ViewModels\Emails\CompletedBoxSummary.cs" />
+    <Compile Include="ViewModels\Emails\FlagRequestCompletedWithMissingUnitsEmail.cs" />
+    <Compile Include="ViewModels\Emails\FlagRequestCompletedEmailViewModel.cs" />
+    <Compile Include="ViewModels\Emails\FlagRequestConflictEmailViewModel.cs" />
+    <Compile Include="ViewModels\Emails\FlagRequestReminderEmailViewModel.cs" />
+    <Compile Include="ViewModels\Operator\FlaggedUnitGroup.cs" />
+    <Compile Include="ViewModels\Operator\FlaggedUnitLineItem.cs" />
+    <Compile Include="ViewModels\Operator\OperatorBarcodeViewModel.cs" />
+    <Compile Include="ViewModels\Operator\ViewRequestViewModel.cs" />
+    <Compile Include="ViewModels\QRE\ConfirmRequestViewModel.cs" />
+    <Compile Include="ViewModels\QRE\CreateRequestParentViewModel.cs" />
+    <Compile Include="ViewModels\QRE\CreateRequestViewModel.cs" />
+    <Compile Include="ViewModels\QRE\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\QRE\FlaggedBoxLineItem.cs" />
+    <Compile Include="ViewModels\QRE\UploadRequestViewModel.cs" />
+    <Compile Include="ViewModels\Emails\FlagRequestCreatedEmailViewModel.cs" />
+    <Compile Include="ViewModels\QRE\ViewRequestViewModel.cs" />
+    <Compile Include="ViewModels\Report\ReportIndexParentViewModel.cs" />
+    <Compile Include="ViewModels\Report\ReportLineItemViewModel.cs" />
+    <Compile Include="ViewModels\Service\EndDemixWlotRequestModel.cs" />
+    <Compile Include="ViewModels\Service\LotQtyRequestModel.cs" />
+    <Compile Include="ViewModels\Service\UpdateResponseViewModel.cs" />
+    <Compile Include="ViewModels\Service\ConnectionTestViewModel.cs" />
+    <Compile Include="ViewModels\Service\ConnectionResponseViewModel.cs" />
+    <Compile Include="ViewModels\Service\ECDUnit.cs" />
+    <Compile Include="ViewModels\Service\LotRequestModel.cs" />
+    <Compile Include="ViewModels\Service\LotResponseModel.cs" />
+    <Compile Include="ViewModels\Service\Update_originalQuantity_flaggedUnit.cs" />
+    <Compile Include="ViewModels\Shared\PersonModel.cs" />
+    <Compile Include="ViewModels\Service\UpdateStatusViewModel.cs" />
+    <Compile Include="ViewModels\Report\ReportRequestList.cs" />
+    <Compile Include="ViewModels\Shared\RequestIndexParentViewModel.cs" />
+    <Compile Include="ViewModels\Shared\RequestLineItemViewModel.cs" />
+    <Compile Include="ViewModels\QRE\UploadUnits.cs" />
+    <Compile Include="ViewModels\QRE\UploadUnitsLineItem.cs" />
+    <Compile Include="Views\Shared\LotBoxCount.cs" />
+    <Compile Include="Views\Shared\LotBoxUnit.cs" />
+    <Compile Include="Web References\WorkerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Create Logging Tables.sql" />
+    <Content Include="App_Readme\LOG_README.txt" />
+    <Content Include="App_Readme\SharedCodeLibrary.Email.RazorTemplate.README.txt" />
+    <Content Include="App_Readme\WEB_LOG_README.txt" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\email\intellogo.png" />
+    <Content Include="Content\images\email\Title.png" />
+    <Content Include="Content\images\email\ViewDetails.png" />
+    <Content Include="Content\images\icons\cross.png" />
+    <Content Include="Content\images\icons\error.png" />
+    <Content Include="Content\images\icons\information.png" />
+    <Content Include="Content\images\icons\tick.png" />
+    <Content Include="Content\images\icons\tick_circle.png" />
+    <Content Include="Content\images\icons\warning.png" />
+    <Content Include="Content\images\layout\bg_body_gradiant.png" />
+    <Content Include="Content\images\layout\bg_header_tool_name.png" />
+    <Content Include="Content\images\layout\logo_white.png" />
+    <Content Include="Content\images\layout\peel_rt_btm_drkBlue.png" />
+    <Content Include="Content\images\layout\peel_rt_top_wht.png" />
+    <Content Include="Content\loading.css" />
+    <Content Include="Content\plugins\alertify\alertify.css" />
+    <Content Include="Content\plugins\alertify\alertify.js" />
+    <Content Include="Content\plugins\alertify\alertify.min.css" />
+    <Content Include="Content\plugins\alertify\alertify.min.js" />
+    <Content Include="Content\plugins\alertify\bootstrap.css" />
+    <Content Include="Content\plugins\alertify\bootstrap.min.css" />
+    <Content Include="Content\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\plugins\datepicker\datepicker.css" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ar.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.az.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.bg.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ca.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.cs.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.cy.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.el.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.et.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.fa.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.gl.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.he.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.hr.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.hu.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.id.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ja.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ka.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.kk.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.kr.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.lt.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.mk.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ms.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.nl-BE.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.no.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.pt-BR.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.pt.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ro.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.rs-latin.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.rs.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.sk.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.sl.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.sq.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.sw.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.ua.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.vi.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Content\plugins\datepicker\locales\bootstrap-datepicker.zh-TW.js" />
+    <Content Include="Content\plugins\modal\bootstrap-modal-bs3patch.css" />
+    <Content Include="Content\plugins\modal\bootstrap-modal.css" />
+    <Content Include="Content\plugins\modal\bootstrap-modal.js" />
+    <Content Include="Content\plugins\modal\bootstrap-modalmanager.js" />
+    <Content Include="Content\plugins\modal\images\ajax-loader.gif" />
+    <Content Include="Content\plugins\selectize\selectize.bootstrap3.css" />
+    <Content Include="Content\plugins\selectize\selectize.js" />
+    <Content Include="Content\plugins\selectize\selectize.min.js" />
+    <Content Include="Content\site\brand.css" />
+    <Content Include="Content\site\common.css" />
+    <Content Include="Content\site\helpers.css" />
+    <Content Include="Content\site\layout.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Icon.png" />
+    <Content Include="Images\Access-Denied.jpg" />
+    <Content Include="Images\Forward-32.png" />
+    <Content Include="Content\plugins\alertify\alertify.min.js.map" />
+    <Content Include="Files\WUFT Sample Upload File.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\IDAutomationHC39M_FREE.otf" />
+    <Content Include="lib\Newtonsoft.Json.dll" />
+    <Content Include="lib\SharedCodeLibrary.Core.Services.Logging.dll" />
+    <Content Include="lib\SharedCodeLibrary.Core.Services.Logging.Web.dll" />
+    <Content Include="lib\SharedCodeLibrary.Email.dll" />
+    <Content Include="lib\SharedCodeLibrary.Email.RazorTemplate.dll" />
+    <Content Include="log.txt" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="App_Readme\EmailerExample.config" />
+    <Content Include="Content\plugins\selectize\selectize.min.js.map" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Rg.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Rg.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Rg.eot" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_LtIt.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_LtIt.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_LtIt.eot" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Lt.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Lt.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Lt.eot" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_It.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_It.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_It.eot" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_BdIt.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_BdIt.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_BdIt.eot" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Bd.woff" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Bd.ttf" />
+    <Content Include="Content\fonts\intel\IntelClear_WLatn_Bd.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\Albacore File Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ContinuousIntegrationBuild.pubxml" />
+    <None Include="Properties\PublishProfiles\Dev File Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Old Dev File Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Prod File Deploy.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Parameters.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\admin.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\common.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\list.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\operator.js" />
+    <Content Include="Scripts\qre.js" />
+    <Content Include="Scripts\report.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="UploadedFiles\Empty.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web References\WorkerService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Shared\DisplayTemplates\StringToInt.cshtml" />
+    <Content Include="Views\Operator\ViewBarcodes.cshtml" />
+    <Content Include="Views\Operator\EditorTemplates\FlaggedUnitGroup.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\EmailTemplates\FlagRequestReminderEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\EmailTemplates\FlagRequestCompletedWithMissingUnitsEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\QRE\ViewRequest.cshtml" />
+    <Content Include="Views\QRE\EditorTemplates\FlaggedBoxLineItem.cshtml" />
+    <Content Include="Views\EmailTemplates\FlagRequestConflictEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\QRE\Error.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Report\EditorTemplates\ReportLineItemViewModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CommaSeparateIntString.cshtml" />
+    <Content Include="Views\QRE\_ViewRequestSummary.cshtml" />
+    <Content Include="Views\QRE\_NewOrInProcessRequestTable.cshtml" />
+    <Content Include="Views\QRE\_CompletedRequestTable.cshtml" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StringListInTableShowDuplicates.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\EditorTemplates\RequestLineItemViewModel.cshtml" />
+    <Content Include="Views\Shared\_adminNavigation.cshtml" />
+    <Content Include="Views\Admin\ViewRequest.cshtml" />
+    <Content Include="Views\Admin\EditorTemplates\FlaggedBoxLineItem.cshtml" />
+    <Content Include="Views\EmailTemplates\BoxCompletedEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\EmailTemplates\FlagRequestConflictBoxEmail.cshtml" />
+    <None Include="Web References\WorkerService\WorkerService.disco" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_qreNavigation.cshtml" />
+    <Content Include="Views\QRE\Create.cshtml" />
+    <Content Include="Views\QRE\_Upload.cshtml" />
+    <Content Include="Views\QRE\_Confirm.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StringList.cshtml" />
+    <Content Include="Views\EmailTemplates\FlagRequestCreatedEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Shared\_operatorNavigation.cshtml" />
+    <Content Include="Views\Shared\_navigation.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UploadUnitsTable.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UploadedUnits.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StringListInTable.cshtml" />
+    <Content Include="Views\QRE\Index.cshtml" />
+    <Content Include="Views\Operator\Index.cshtml" />
+    <Content Include="Views\Operator\EditorTemplates\RequestLineItemViewModel.cshtml" />
+    <Content Include="Views\QRE\EditorTemplates\RequestLineItemViewModel.cshtml" />
+    <Content Include="Views\Operator\ViewRequest.cshtml" />
+    <Content Include="Views\Operator\EditorTemplates\FlaggedUnitLineItem.cshtml" />
+    <Content Include="Views\EmailTemplates\FlagRequestCompletedEmail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web References\WorkerService\WorkerService.wsdl" />
+    <Content Include="Views\XML\Index.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Less\" />
+    <Folder Include="Views\Email\" />
+    <Folder Include="Views\File\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WUFT.DATA\WUFT.DATA.csproj">
+      <Project>{692c34ca-ed8c-4eac-bc17-4663ee9d4125}</Project>
+      <Name>WUFT.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WUFT.EF\WUFT.EF.csproj">
+      <Project>{a110ea5a-36fa-4bf3-ba64-a669eb24d09a}</Project>
+      <Name>WUFT.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WUFT.MODEL\WUFT.MODEL.csproj">
+      <Project>{d60b7d18-c2c1-47c4-a17d-5997d7ac764c}</Project>
+      <Name>WUFT.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://vews001.intel.com/CdisWebService/WorkerService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WorkerService\</RelPath>
+      <UpdateFromURL>https://vews001.intel.com/CdisWebService/WorkerService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WUFT_NET_WorkerService_WorkerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>17312</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17312/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target> -->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

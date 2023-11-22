@@ -1,0 +1,20 @@
+﻿@model WUFT.NET.ViewModels.Shared.RequestLineItemViewModel
+
+<tr class="pull-center" data-requestid="@Model.RequestID">
+    @Html.HiddenFor(x => x.RequestID)
+    <td>@Html.CheckBoxFor(x => x.Selected, new { @class = "selectRequest cursor-pointer", data_requestid = Model.RequestID })</td>
+    <td class="MRBID">@Html.DisplayFor(x => x.MRBID, "StringToInt")</td>
+    <td class="Disposition">@Html.DisplayFor(x => x.Disposition)</td>
+    <td class="BoxQty">@Html.DisplayFor(x => x.BoxQty)</td> <!--TASK7720599-->
+    <td class="LotID">@Html.DisplayFor(x => x.LotIDs)</td>
+    @*<td class="UnmergeLotID">@Html.DisplayFor(x => x.UnmergeLotIDs)</td>*@
+    <td class="BoxID">@Html.DisplayFor(x => x.BoxIDs)</td>
+    <td class="UnitQty">@Html.DisplayFor(x => x.UnitQty)</td>
+    <td class="Warehouse">@Html.DisplayFor(x => x.Warehouse)</td>
+    <td class="Requestor">@Html.DisplayFor(x => x.Requestor)</td>
+    <td class="RequestDate">@Html.DisplayFor(x => x.CreatedOn, "DateTime")</td>
+    <td class="RequestStatus">@Html.DisplayFor(x => x.OriginalRequestStatus)</td>
+    <td><span class="cursor-pointer glyphicon glyphicon glyphicon-list-alt icon" aria-hidden="true" onclick="showLoading();window.location.href='@Url.Action("ViewRequest", "QRE", new {@id= Model.RequestID })'"></span></td>
+    @*<td class="OriginalMRB">@Html.DisplayFor(x => x.OriginalMRB)</td>*@
+    @*<td><img class="cursor-pointer" src="~/Images/Forward-32.png" onclick="sendEmail(@Model.RequestID)" /></td>*@
+</tr>

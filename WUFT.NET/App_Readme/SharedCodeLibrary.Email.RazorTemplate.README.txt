@@ -1,0 +1,20 @@
+﻿======
+Step 1
+======
+Register following dependencies with your dependency resolver
+
+- IEmailTemplateFactory -> EmailTemplateFactory
+- IEmailTemplateSettings -> DefaultEmailTemplateSettings
+
+NOTE: The DefaultEmailTemplateSettings uses whatever value is provided in the appSetting "email:templatePath". This should be a relative path to the root of your project
+
+======
+Step 2
+======
+Use IEmailTemplateFactory as a parameter in your controller constructor
+
+=====
+Usage
+=====
+_emailTemplateFactory.ParseEmail("template_filename.cshtml", "templateKey")
+_emailTemplateFactory.ParseEmail<TModel>("template_filename.cshtml", "templateKey", model (of type TModel)

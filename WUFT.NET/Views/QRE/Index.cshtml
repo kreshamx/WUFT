@@ -1,0 +1,74 @@
+﻿@model WUFT.NET.ViewModels.Shared.RequestIndexParentViewModel
+
+@{
+    ViewBag.Title = "QRE";
+}
+
+
+<div class="row">
+    @using (Html.BeginForm("ExportList", "File", FormMethod.Post, new {onsubmit="setStringList()", enctype = "multipart/form-data", @id = "QREIndex" }))
+    {
+        @Html.HiddenFor(model => model.IdList, new { @id="idList"})
+        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+
+                <button class="btn btn-primary pull-right margin10TB" id="expRep" name="btnRep" type="submit">
+                    <span class="glyphicon glyphicon-save icon" style="color: white; font-size: 1.1em; margin-right: 10px;" aria-hidden="true"></span>Export Selected Request(s)
+                </button>
+
+                <button class="btn btn-primary pull-left margin10TB" type="submit">
+                    <span class="glyphicon glyphicon-save icon" style="color: white; font-size: 1.1em; margin-right: 10px;" aria-hidden="true"></span>Boxlevel Summary Report
+                </button>
+            </div>
+
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>All Unit Flag Requests</h3>
+                </div>
+                <div class="intel-panel-body" id="requestTable">
+                    <input class="search form-control" style="margin-bottom: 10px" placeholder="search by MRB number, box ID, lot ID, disposition, warehouse, requestor, or status" />
+                    <table class="table table-bordered table-striped table-hover" id="qreIndexTable">
+                        <thead>
+                            <tr>
+                                <th class="pull-center" style="vertical-align: top">
+                                    <input style="margin-left: 5px;" type="checkbox" id="qreSelectAll" />Select
+                                </th>
+                                <th class="pull-center sort" data-sort="MRBID" style="vertical-align: top">MRB Number</th>
+                                <th class="pull-center sort" data-sort="Disposition" style="vertical-align: top">Disposition</th>
+                                <th class="pull-center sort" data-sort="BoxQty" style="vertical-align: top">Box Qty</th><!--vsharm6x : TASK7720599 -->
+                                <th class="pull-center sort" data-sort="LotID" style="vertical-align: top">Lot IDs</th>
+                                @*<th class="pull-center sort" data-sort="UnmergeLotID" style="vertical-align: top" >Unmerge Lot IDs</th>*@
+                                @*<th class="pull-center sort" data-sort="UnmergeLotID" style="display:none">Unmerge Lot IDs</th>*@
+                                <th class="pull-center sort" data-sort="BoxID" style="vertical-align: top">Box IDs</th>
+                                <th class="pull-center sort" data-sort="UnitQty" style="vertical-align: top">Unit Qty</th>
+                                <th class="pull-center sort" data-sort="Warehouse" style="vertical-align: top">Warehouse</th>
+                                <th class="pull-center sort" data-sort="Requestor" style="vertical-align: top">Requestor</th>
+                                <th class="pull-center sort" data-sort="RequestDate" style="vertical-align: top">Request Date</th>
+                                <th class="pull-center sort" data-sort="RequestStatus" style="vertical-align: top">Request Status</th>
+                                <th class="pull-center" style="vertical-align: top">Details</th>
+                                <th class="pull-center sort" data-sort="OriginalMRB" style="vertical-align: top; display:none">Original MRB</th>
+                                @*<th class="pull-center" style="vertical-align: top">Email WH</th>*@
+                                @*<th class="pull-center" style="display:none">Email WH</th>*@
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @if (Model.Requests.Count == 0)
+                            {
+                                <tr class="pull-center">
+                                    <td colspan="13">No Requests!</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.Requests)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

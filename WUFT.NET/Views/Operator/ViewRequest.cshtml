@@ -1,0 +1,130 @@
+﻿@model WUFT.NET.ViewModels.Operator.ViewRequestViewModel
+
+@{
+    ViewBag.Title = "View Request";
+}
+
+@if (Model.InvalidID)
+{
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>Invalid Request ID</h3>
+                </div>
+                <div class="intel-panel-body">
+                    <h2 style="color:darkred; text-align:center;">The URL you entered has an invalid request ID.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        @Html.HiddenFor(model => model.RequestID, new { @id = "requestID" })
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+            <div class="clearfix">
+                <input class="btn btn-default margin10TB pull-left" style="margin-top:25px;" type="button" onclick="showLoading(); window.location.href='/Operator'" value="Go To All Requests" />
+            </div>
+            <div class="intel-panel intel-panel-top-peel">
+                <div class="intel-panel-heading">
+                    @if (@Model.Disposition == "Unmerge")
+                    {
+                        <h3>WLOT Request for @Model.Warehouse</h3>
+                    }
+                    else
+                    {
+                        <h3>Demix Request for @Model.Warehouse</h3>
+                    }
+
+                </div>
+                <div class="intel-panel-body">
+                    <div class="row" style="width:90%; margin:0 auto;">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.Disposition, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.Disposition, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.MRBID, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.MRBID, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.BoxCount, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.BoxCount, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.CreatedBy, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.CreatedBy, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.CreatedOn, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.CreatedOn, "DateTime", new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.RequestStatus, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DisplayFor(x => x.RequestStatus, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="width:93%; margin:0 auto;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active progress-bar-warning" role="progressbar" aria-valuenow="@Model.PercentDone" aria-valuemin="0" aria-valuemax="100" style="width: @Model.PercentDone%;">
+                                @Model.PercentDone %
+                            </div>
+                        </div>
+                    </div>
+                    @for (var i = 0; i < Model.FlaggedUnits.Count; i++)
+                    {
+                        <div class="row">
+                            <table class="table table-bordered table-striped table-hover" style="width:90%; margin:0 auto;">
+                                <thead>
+                                    <tr>
+                                        <th class="pull-center" style="vertical-align:middle">Box ID</th>
+                                        <th class="pull-center" style="vertical-align:middle">Lot ID</th>
+                                        @if (Model.Disposition == "Unmerge")
+                                        {
+                                            <th class="pull-center" style="vertical-align:middle">Unmerge Lot ID</th>
+                                        }
+                                        <th class="pull-center" style="vertical-align:middle">Unit Count</th>
+                                        <th class="pull-center" style="vertical-align:middle">Request Status</th>
+                                        <th class="pull-center" style="vertical-align:middle">Print Request</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @for (var j = 0; j < Model.FlaggedUnits[i].Item2.Count; j++)
+                                    {
+                                        <tr class="pull-center">
+                                            <td>@Html.DisplayFor(x => Model.FlaggedUnits[i].Item2[j].BoxID)</td>
+                                            <td>@Html.DisplayFor(x => Model.FlaggedUnits[i].Item2[j].LotID)</td>
+                                            @if (!String.IsNullOrEmpty(Model.FlaggedUnits[i].Item2[j].UnmergeLotID))
+                                            {
+                                                <td>@Html.DisplayFor(x => Model.FlaggedUnits[i].Item2[j].UnmergeLotID)</td>
+                                            }
+                                            <td>@Html.DisplayFor(x => Model.FlaggedUnits[i].Item2[j].VisualIDCount)</td>
+                                            <td>@Html.DisplayFor(x => Model.FlaggedUnits[i].Item2[j].BoxRequestStatus)</td>
+                                            @if (j == 0)
+                                            {
+                                                <td rowspan="@Model.FlaggedUnits[i].Item2.Count" style="vertical-align:middle">
+                                                    <button class="btn margin10TB btn-primary" style="margin-top:25px;" onclick="OpenBarcodeSheet('@Model.FlaggedUnits[i].Item1',@Model.RequestID)">
+                                                        <span class="glyphicon glyphicon-barcode icon" style="color:white; font-size:1.1em; margin-right:10px;" aria-hidden="true"></span>Print Request
+                                                    </button>
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <br /><br />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

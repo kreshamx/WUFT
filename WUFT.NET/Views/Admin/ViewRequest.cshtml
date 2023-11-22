@@ -1,0 +1,92 @@
+﻿@model WUFT.NET.ViewModels.Admin.ViewRequestViewModel
+
+@{
+    ViewBag.Title = "View Request";
+}
+
+<div class="row">
+    @using (Html.BeginForm("UpdateRequest", "Admin", FormMethod.Post, new {onsubmit = "adminSave()", enctype = "multipart/form-data" }))
+    {
+    @Html.HiddenFor(model => model.RequestID, new { @id = "requestID" })
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+        <div class="form-group clearfix">
+            <input class="btn btn-default pull-left" type="button" onclick="showLoading(); window.location.href='/Admin'" value="Go To All Requests" />
+            <button class="btn btn-primary pull-right margin10TB" type="submit">
+                Save Changes
+            </button>            
+            <button class="btn btn-primary pull-right margin10TB"  name="btnReFlag" value="btnReFlag" type="submit" onclick="showLoading(); window.location.href='/Admin'">
+                Re-Flag
+            </button>
+        </div>
+
+
+        <div class="intel-panel intel-panel-top-peel">
+            <div class="intel-panel-heading">
+                <h3>Unit @Model.Disposition Request for @Model.Warehouse</h3>
+            </div>
+            <div class="intel-panel-body">
+                <div class="row" style="width:90%; margin:0 auto;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Disposition, new { @class = "control-label", @style = "font-size:1.2em" })
+                            @Html.DisplayFor(x => x.Disposition, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.MRBID, new { @class = "control-label", @style = "font-size:1.2em" })
+                            @Html.DisplayFor(x => x.MRBID, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.BoxCount, new { @class = "control-label", @style = "font-size:1.2em" })
+                            @Html.DisplayFor(x => x.BoxCount, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.CreatedBy, new { @class = "control-label", @style = "font-size:1.2em" })
+                            <a target="_top" href="mailto:@Model.CreatedByEmail">@Model.CreatedBy</a>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.LastModifiedOn, new { @class = "control-label", @style = "font-size:1.2em" })
+                            @Html.DisplayFor(x => x.LastModifiedOn, "DateTime", new { @class = "form-control" })
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.RequestStatusID, new { @class = "control-label", @style = "font-size:1.2em" })
+                                @Html.DropDownListFor(x => x.RequestStatusID, Model.Statuses, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered table-striped table-hover" style="width:90%; margin:0 auto;">
+                        <thead>
+                            <tr>
+                                <th class="pull-center" style="vertical-align:middle">Box ID</th>
+                                <th class="pull-center" style="vertical-align:middle">Lot ID</th>
+                                @if (!String.IsNullOrEmpty(Model.FlaggedBoxes.FirstOrDefault().UnmergeLotID))
+                                {
+                                    <th class="pull-center" style="vertical-align:middle">Unmerge Lot ID</th>
+                                }
+                                <th class="pull-center" style="vertical-align:middle">Unit Count</th>
+                                <th class="pull-center" style="vertical-align:middle">Request Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.FlaggedBoxes.Count == 0)
+                            {
+                                <tr class="pull-center">
+                                    <td colspan="3">No flagged boxes in this request!</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @Html.EditorFor(x => Model.FlaggedBoxes)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,796 @@
+﻿/* Common */
+
+.scrolltable {
+    height: 80px;
+    overflow-y: auto;
+}
+
+div.panel *:last-child, div.block *:last-child {
+    margin-bottom: 0;
+}
+
+div.panel *:first-child, div.block *:first-child {
+    margin-top: 0;
+}
+
+.highlight {
+    display: inline;
+    padding: .2em .6em .3em;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.highlightcol-default {
+    background-color: #777;
+}
+
+.highlightcol-success {
+    background-color: #5cb85c;
+}
+
+.highlightcol-danger {
+    background-color: #d9534f;
+}
+
+.highlightcol-warning {
+    background-color: #f0ad4e;
+}
+
+.highlightcol-info {
+    background-color: #5bc0de;
+}
+
+.highlight-default {
+    border-left: 3px solid #939598;
+}
+
+.highlight-success {
+    border-left: 3px solid #3c763d;
+}
+
+.highlight-danger {
+    border-left: 3px solid #ed1c24;
+}
+
+.highlight-warning {
+    border-left: 3px solid #fdb813;
+}
+
+.highlight-info {
+    border-left: 3px solid #004280;
+}
+
+div.block {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+}
+
+div.block-default {
+    border-left: 3px solid #939598;
+    background: rgb(245, 245, 245);
+}
+
+div.block-success {
+    border-left: 3px solid #3c763d;
+    background: #e9ffea;
+}
+
+div.block-danger {
+    border-left: 3px solid #ed1c24;
+    background: #fce7e7;
+}
+
+div.block-warning {
+    border-left: 3px solid #fdb813;
+    background: #fef9ee;
+}
+
+div.block-info {
+    border-left: 3px solid #004280;
+    background: #d1e9ff;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -12px;
+}
+
+.spin {
+    -moz-animation-name: spinner;
+    -o-animation-name: spinner;
+    -webkit-animation-name: spinner;
+    animation-name: spinner;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    display: inline-block;
+}
+
+@-moz-keyframe spinner {
+    25% {
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    50% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    75% {
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframe spinner {
+    25% {
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    50% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    75% {
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    25% {
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    50% {
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+    75% {
+        -moz-transform: rotate(270deg);
+        -ms-transform: rotate(270deg);
+        -o-transform: rotate(270deg);
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Tables */
+.table-no-border > thead > tr > th,
+.table-no-border > tbody > tr > th,
+.table-no-border > tfoot > tr > th,
+.table-no-border > thead > tr > td,
+.table-no-border > tbody > tr > td,
+.table-no-border > tfoot > tr > td {
+    border-top: none;
+}
+
+/* Intel Stuff */
+div.intel-panel {
+    border: 10px solid #edeff0;
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+div.intel-panel-heading {
+    background: #0071c5;
+    color: #fff;
+    min-height: 45px;
+    padding: 10px;
+}
+
+    div.intel-panel-heading h3 {
+        margin: 0;
+    }
+
+div.intel-panel-body {
+    padding: 10px;
+}
+
+div.intel-panel-top-peel div.intel-panel-heading {
+    background: #0071c5 url('/Content/images/layout/peel_rt_top_wht.png') bottom right no-repeat;
+}
+
+div.intel-panel-bottom-peel div.intel-panel-heading {
+    background: #0071c5 url('/Content/images/layout/peel_rt_btm_drkBlue.png') top right no-repeat;
+}
+
+div.intel-panel-footer {
+    padding-top: 10px;
+    background: #edeff0;
+    border-top: 1px solid #e6e7e8;
+}
+
+div.intel-panel-solid-border {
+    border-bottom: 2px solid #0071c5;
+}
+
+    div.intel-panel-solid-border > :not(.intel-panel-heading) {
+        background-color: rgba(255, 255, 255, 0);
+        border-left: 2px solid #0071c5;
+        border-right: 2px solid #0071c5;
+        border-top: none;
+        border-bottom: none;
+    }
+
+div.intel-panel-container-peel-bottom {
+    background: url('/Content/images/layout/peel_rt_btm_drkBlue.png') bottom right no-repeat;
+}
+
+div.intel-panel-gray {
+    border: 1px solid #939598;
+}
+
+    div.intel-panel-gray div.intel-panel-heading {
+        background: #edeff0;
+        color: #707174;
+        border: 1px solid #939598;
+        border-bottom: none;
+    }
+
+    div.intel-panel-gray div.intel-panel-body, div.intel-panel-gray:last-child {
+        border: 1px solid #939598;
+    }
+
+div.intel-panel-subheading {
+    padding: 10px 15px;
+    background: rgb(245, 245, 245);
+    border-bottom: 1px solid #edeff0;
+}
+
+    div.intel-panel-subheading *:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+div.intel-panel-danger {
+    border: 10px solid #fce7e7; /* #a94442 */
+}
+
+    div.intel-panel-danger div.intel-panel-heading {
+        background: #a94442;
+        color: #fff;
+    }
+
+    div.intel-panel-danger div.intel-panel-footer {
+        background: #fce7e7;
+    }
+
+/* Intel Breadcrumb */
+.intel-breadcrumb {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+    .intel-breadcrumb li {
+        background-color: #edeff0;
+        border-color: #d3d8db;
+        border-style: solid;
+        border-width: 1px 0 1px 1px;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.65em;
+        margin: 0;
+        padding: 0.1em 0.5em 0.1em 1.5em;
+        position: relative;
+    }
+
+        .intel-breadcrumb li:first-child {
+            padding-left: 0.5em;
+            border-left-color: #d3d8db;
+        }
+
+        .intel-breadcrumb li:last-child {
+            border-width: 1px;
+        }
+
+        .intel-breadcrumb li:hover {
+            background-color: white;
+        }
+
+        .intel-breadcrumb li:after,
+        .intel-breadcrumb li:before {
+            border-color: transparent;
+            border-style: solid;
+            border-width: 0.999em;
+            content: '';
+            height: 0;
+            position: absolute;
+            top: -1px;
+            width: 0;
+            z-index: 1;
+        }
+
+        .intel-breadcrumb li:before {
+            border-left-color: #d3d8db;
+            right: -2em;
+        }
+
+        .intel-breadcrumb li:after {
+            border-left-color: #edeff0;
+            right: -2em;
+            right: -webkit-calc(-2em + 2px);
+            right: -moz-calc(-2em + 2px);
+            right: calc(-2em + 2px);
+        }
+
+        .intel-breadcrumb li:hover:after {
+            border-left-color: white;
+        }
+
+        .intel-breadcrumb li.active {
+            background-color: white;
+        }
+
+            .intel-breadcrumb li.active:after {
+                border-left-color: #fff;
+                right: -2em;
+                right: -webkit-calc(-2em + 2px);
+                right: -moz-calc(-2em + 2px);
+                right: calc(-2em + 2px);
+            }
+
+        .intel-breadcrumb li a {
+            color: #0071c5;
+        }
+
+        .intel-breadcrumb li.active a {
+            color: #53565a;
+            text-decoration: none;
+            cursor: text;
+        }
+
+/* Squared off end */
+.intel-breadcrumb-square li:last-child:after, .intel-breadcrumb-square li:last-child:before {
+    display: none;
+}
+
+/* Large */
+.intel-breadcrumb-large li {
+    font-size: 24px;
+}
+
+/* X Large */
+.intel-breadcrumb-xlarge li {
+    font-size: 36px;
+}
+
+/* XX Large */
+.intel-breadcrumb-xxlarge li {
+    font-size: 42px;
+}
+
+    .intel-breadcrumb-xlarge li:after,
+    .intel-breadcrumb-xlarge li:before .intel-breadcrumb-xxlarge li:after,
+    .intel-breadcrumb-xxlarge li:before {
+        top: -2px;
+    }
+
+/* Forms */
+input::-ms-clear {
+    display: none;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Extending existing panels  */
+div.panel-subheading {
+    padding: 10px 15px;
+    background: rgb(245, 245, 245);
+}
+
+div.panel-default div.panel-subheading {
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+
+div.panel-success div.panel-subheading {
+    border-bottom: 1px solid #d6e9c6;
+    border-top: 1px solid #d6e9c6;
+}
+
+div.panel-tab {
+    border-top: none;
+    border-top-left-radius: 0;
+}
+
+div.row.row-odd {
+    background-color: #e6e7e8;
+}
+
+div.row.row-even {
+    background-color: #edeff0;
+}
+
+.pull-center {
+    text-align: center !important;
+}
+
+.display_reason {
+    width: 340px;
+    height: 65px;
+    margin-top: 50px;
+}
+
+.reason_label {
+    float: left;
+    /*width:35%;*/
+}
+
+.reason_text {
+    text-align: center;
+    /*width:65%;*/
+}
+
+.inline_left {
+    float: right;
+    margin-right: 5px;
+}
+
+.inline_right {
+    float: right;
+    margin-right: 10px;
+}
+
+/**
+ * QUnit v1.9.0 - A JavaScript Unit Testing Framework
+ *
+ * http://docs.jquery.com/QUnit
+ *
+ * Copyright (c) 2012 John Resig, JÃ¶rn Zaefferer
+ * Dual licensed under the MIT (MIT-LICENSE.txt)
+ * or GPL (GPL-LICENSE.txt) licenses.
+ */
+
+/** Font Family and Sizes */
+
+#qunit-tests, #qunit-header, #qunit-banner, #qunit-testrunner-toolbar, #qunit-userAgent, #qunit-testresult {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+    #qunit-testrunner-toolbar, #qunit-userAgent, #qunit-testresult, #qunit-tests li {
+        font-size: small;
+    }
+
+#qunit-tests {
+    font-size: smaller;
+}
+
+    /** Resets */
+
+    #qunit-tests, #qunit-tests ol, #qunit-header, #qunit-banner, #qunit-userAgent, #qunit-testresult {
+        margin: 0;
+        padding: 0;
+    }
+
+/** Header */
+
+#qunit-header {
+    padding: 0.5em 0 0.5em 1em;
+    color: #8699a4;
+    background-color: #0d3349;
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: normal;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+    #qunit-header a {
+        text-decoration: none;
+        color: #c2ccd1;
+    }
+
+        #qunit-header a:hover,
+        #qunit-header a:focus {
+            color: #fff;
+        }
+
+#qunit-testrunner-toolbar label {
+    display: inline-block;
+    padding: 0 .5em 0 .1em;
+}
+
+#qunit-banner {
+    height: 5px;
+}
+
+#qunit-testrunner-toolbar {
+    padding: 0.5em 0 0.5em 2em;
+    color: #5E740B;
+    background-color: #eee;
+}
+
+#qunit-userAgent {
+    padding: 0.5em 0 0.5em 2.5em;
+    background-color: #2b81af;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px;
+}
+
+/** Tests: Pass/Fail */
+
+#qunit-tests {
+    list-style-position: inside;
+}
+
+    #qunit-tests li {
+        padding: 0.4em 0.5em 0.4em 2.5em;
+        border-bottom: 1px solid #fff;
+        list-style-position: inside;
+    }
+
+    #qunit-tests.hidepass li.pass, #qunit-tests.hidepass li.running {
+        display: none;
+    }
+
+    #qunit-tests li strong {
+        cursor: pointer;
+    }
+
+    #qunit-tests li a {
+        padding: 0.5em;
+        color: #c2ccd1;
+        text-decoration: none;
+    }
+
+        #qunit-tests li a:hover,
+        #qunit-tests li a:focus {
+            color: #000;
+        }
+
+    #qunit-tests ol {
+        margin-top: 0.5em;
+        padding: 0.5em;
+        background-color: #fff;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    }
+
+    #qunit-tests table {
+        border-collapse: collapse;
+        margin-top: .2em;
+    }
+
+    #qunit-tests th {
+        text-align: right;
+        vertical-align: top;
+        padding: 0 .5em 0 0;
+    }
+
+    #qunit-tests td {
+        vertical-align: top;
+    }
+
+    #qunit-tests pre {
+        margin: 0;
+        white-space: pre-wrap;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    #qunit-tests del {
+        background-color: #e0f2be;
+        color: #374e0c;
+        text-decoration: none;
+    }
+
+    #qunit-tests ins {
+        background-color: #ffcaca;
+        color: #500;
+        text-decoration: none;
+    }
+
+    /*** Test Counts */
+
+    #qunit-tests b.counts {
+        color: black;
+    }
+
+    #qunit-tests b.passed {
+        color: #5E740B;
+    }
+
+    #qunit-tests b.failed {
+        color: #710909;
+    }
+
+    #qunit-tests li li {
+        padding: 5px;
+        background-color: #fff;
+        border-bottom: none;
+        list-style-position: inside;
+    }
+
+        /*** Passing Styles */
+
+        #qunit-tests li li.pass {
+            color: #3c510c;
+            background-color: #fff;
+            border-left: 10px solid #C6E746;
+        }
+
+    #qunit-tests .pass {
+        color: #528CE0;
+        background-color: #D2E0E6;
+    }
+
+        #qunit-tests .pass .test-name {
+            color: #366097;
+        }
+
+        #qunit-tests .pass .test-actual,
+        #qunit-tests .pass .test-expected {
+            color: #999999;
+        }
+
+#qunit-banner.qunit-pass {
+    background-color: #C6E746;
+}
+
+/*** Failing Styles */
+
+#qunit-tests li li.fail {
+    color: #710909;
+    background-color: #fff;
+    border-left: 10px solid #EE5757;
+    white-space: pre;
+}
+
+#qunit-tests > li:last-child {
+    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#qunit-tests .fail {
+    color: #000000;
+    background-color: #EE5757;
+}
+
+    #qunit-tests .fail .test-name,
+    #qunit-tests .fail .module-name {
+        color: #000000;
+    }
+
+    #qunit-tests .fail .test-actual {
+        color: #EE5757;
+    }
+
+    #qunit-tests .fail .test-expected {
+        color: green;
+    }
+
+#qunit-banner.qunit-fail {
+    background-color: #EE5757;
+}
+
+/** Result */
+
+#qunit-testresult {
+    padding: 0.5em 0.5em 0.5em 2.5em;
+    color: #2b81af;
+    background-color: #D2E0E6;
+    border-bottom: 1px solid white;
+}
+
+    #qunit-testresult .module-name {
+        font-weight: bold;
+    }
+
+/** Fixture */
+
+#qunit-fixture {
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    width: 1000px;
+    height: 1000px;
+}
+
+.alertify .ajs-dialog {
+    max-width: 25%;
+}
+
+.alertify {
+    left: 5%;
+    margin: 0;
+    background: #ff0000;
+}
+
+    /*.alertify .ajs-body {
+  background: blue;
+}*/
+
+    .alertify .ajs-header {
+        font-weight: bold;
+    }
+
+    .alertify .ajs-footer {
+        font-weight: bold;
+    }

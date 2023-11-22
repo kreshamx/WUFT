@@ -1,0 +1,54 @@
+﻿/* Brand Colours */
+.brand-intel-blue { color: #0071c5; }
+.brand-pale-blue { color: #7ed3f7; }
+.brand-light-blue { color: #00aeef; }
+.brand-dark-blue { color: #004280; }
+.brand-yellow { color: #ffda00; }
+.brand-orange { color: #fdb813; }
+.brand-green { color: #a6ce39; }
+.brand-red { color: #ed1c24; }
+.brand-light-grey { color: #b1babf; }
+.brand-grey { color: #939598; }
+.brand-dark-grey { color: #53565a; }
+
+/* Other Colours */
+.text-white { color: #fff; }
+.text-black { color: #000; }
+
+/* Fonts */
+@font-face {
+    font-family: "intel-clear";
+    font-style: normal;
+    font-weight: normal;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_Rg.eot") format("embedded-opentype"), url("/Content/fonts/intel/IntelClear_WLatn_Rg.woff") format("woff"), url("/Content/fonts/intel/IntelClear_WLatn_Rg.ttf") format("truetype");
+}
+@font-face {
+    font-family: "intel-clear";
+    font-style: normal;
+    font-weight: bold;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_Bd.eot") format("embedded-opentype"), url("~/Content/fonts/intel/IntelClear_WLatn_Bd.woff") format("woff"), url("~/Content/fonts/intel/IntelClear_WLatn_Bd.ttf") format("truetype");
+}
+@font-face {
+    font-family: "intel-clear";
+    font-style: italic;
+    font-weight: normal;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_It.eot") format("embedded-opentype"), url("~/Content/fonts/intel/IntelClear_WLatn_It.woff") format("woff"), url("~/Content/fonts/intel/IntelClear_WLatn_It.ttf") format("truetype");
+}
+@font-face {
+    font-family: "intel-clear";
+    font-style: italic;
+    font-weight: bold;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_BdIt.eot") format("embedded-opentype"), url("~/Content/fonts/intel/IntelClear_WLatn_BdIt.woff") format("woff"), url("~/Content/fonts/intel/IntelClear_WLatn_BdIt.ttf") format("truetype");
+}
+@font-face {
+    font-family: "intel-clear";
+    font-style: normal;
+    font-weight: 200;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_Lt.eot") format("embedded-opentype"), url("~/Content/fonts/intel/IntelClear_WLatn_Lt.woff") format("woff"), url("~/Content/fonts/intel/IntelClear_WLatn_Lt.ttf") format("truetype");
+}
+@font-face {
+    font-family: "intel-clear";
+    font-style: italic;
+    font-weight: 200;
+    src: url("~/Content/fonts/intel/IntelClear_WLatn_LtIt.eot") format("embedded-opentype"), url("~/Content/fonts/intel/IntelClear_WLatn_LtIt.woff") format("woff"), url("~/Content/fonts/intel/IntelClear_WLatn_LtIt.ttf") format("truetype");
+}

@@ -1,0 +1,81 @@
+﻿@model WUFT.NET.ViewModels.Report.ReportIndexParentViewModel
+
+@{
+    ViewBag.Title = "Report";
+}
+
+<div class="row">
+    @using (Html.BeginForm("ExportReport", "File", FormMethod.Post, new { @id="reportForm"}))
+    {
+                    @Html.HiddenFor(X=>Model.IDs)
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                           
+                            <div class="row margin10TB">
+                                <div class="pull-left">
+                                    <label>Warehouse:</label>
+                                    @Html.DropDownListFor(model => model.SelectedWarehouse, Model.Warehouses, null, new { @id = "reportWarehouse", @class = "form-control" })
+                                </div>
+                                <div class="input-append date pull-left margin10LR">
+                                    <label>Start Date:</label>
+                                    @Html.TextBoxFor(x => x.TimePeriodStart, new { @id = "startDate", data_provide = "datepicker", @class = "form-control" })
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <div class="input-append date pull-left">
+                                    <label>End Date:</label>
+                                    @Html.TextBoxFor(x => x.TimePeriodEnd, new { @id = "endDate", data_provide = "datepicker", @class = "form-control" })
+                                    <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+
+                                <input class="btn btn-primary pull-left margin10LR" style="margin-top: 25px;" type="submit" value="Update Requests" />
+                                @*<input class="btn btn-primary pull-left margin10LR" style="margin-top:25px;" type="button" onclick="updateReport()" value="Update Requests" />*@
+                                @*<input class="btn btn-default pull-left" style="margin-top:25px;" type="button" onclick="clearFilters()" value="Clear Filters" />*@
+
+                                @*<input class="btn btn-primary pull-right" style="margin-top:25px" ; type="submit" value="Export Selected Request(s)" />*@
+
+                                <button class="btn btn-primary pull-right margin10TB" id="expRep" name="btnRep" type="submit">
+                                    <span class="glyphicon glyphicon-save icon" style="color: white; font-size: 1.1em; margin-right: 25px;" aria-hidden="true"></span>Export Selected Request(s)
+                                </button>
+
+
+                                <!--TASK7720609 : Box level summary report, added by  -->
+                                <input class="btn btn-primary pull-left margin10TB" id="expRep" name="btnRep" style="margin-top:25px;" type="submit" value="Boxlevel Summary Report" />
+
+                            </div>
+                        </div>
+
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>All Unit Flag Requests</h3>
+                </div>
+                <div class="intel-panel-body" id="requestTable">
+                    <input class="search form-control" style="margin-bottom:10px" placeholder="search by event ID, box ID, lot ID, disposition, warehouse, requestor, or status" />
+                    <table class="table table-bordered table-striped table-hover cursor-pointer" id="reportRequestTable">
+                        <thead>
+                            <tr>
+                                <th class="pull-center" style="vertical-align:top"><input style="margin-left:5px;" type="checkbox" id="reportSelectAll" />Select</th>
+                                <th class="pull-center sort" data-sort="MRBID" style="vertical-align:middle">MRB</th>
+                                <th class="pull-center sort" data-sort="Disposition" style="vertical-align:middle">Disposition</th>
+                                <th class="pull-center sort" data-sort="LotID" style="vertical-align:middle">Lot IDs</th>
+                                @*<th class="pull-center sort" data-sort="UnmergeLotID" style="vertical-align:top">Unmerge Lot IDs</th>*@
+                                <th class="pull-center sort" data-sort="BoxID" style="vertical-align:middle">Box IDs</th>
+                                <th class="pull-center sort" data-sort="UnitQty" style="vertical-align:middle">Unit Qty</th>
+                                <th class="pull-center sort" data-sort="Warehouse" style="vertical-align:middle">Warehouse</th>
+                                <th class="pull-center sort" data-sort="Requestor" style="vertical-align:middle">Requestor</th>
+                                <th class="pull-center sort" data-sort="RequestDate" style="vertical-align:middle">Request Date</th>
+                                <th class="pull-center sort" data-sort="RequestStatus" style="vertical-align:middle">Request Status</th>
+                                <th class="pull-center sort" data-sort="OriginalMRB" style="vertical-align: top">Original MRB</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @for (var i = 0; i < Model.Requests.Requests.Count; i++)
+                            {
+                                @Html.EditorFor(model => model.Requests.Requests[i])
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

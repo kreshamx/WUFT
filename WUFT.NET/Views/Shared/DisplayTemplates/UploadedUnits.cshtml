@@ -1,0 +1,30 @@
+﻿@model List<WUFT.NET.ViewModels.QRE.UploadUnits>
+
+<div class="panel-group" id="accordian">
+    @foreach (var item in Model)
+	{
+		 <div class="panel panel-default">
+             <div class="panel-heading">
+                 <div class="clearfix">
+                     <h4 class="panel-title">
+                         <a style="text-decoration:none;" class="pull-left increaseMe2" data-toggle="collapse" data-parent="#accordion" href="#@item.CollapseIdentifier">@item.Disposition @@ @item.WarehouseName</a>
+                         <span class="pull-right increaseMe">Units: <span class="increaseMe2">@(Int32.Parse(item.UnitQty).ToString("N0"))</span></span>
+                         <span class="pull-right increaseMe margin10LR">Boxes: <span class="increaseMe2">@(Int32.Parse(item.BoxCount).ToString("N0"))</span></span>
+                         @if (Int32.Parse(item.UnmergeLotCount) > 0)
+                         {
+                            <span class="pull-right increaseMe margin10LR">Unmerge Lots: <span class="increaseMe2">@(Int32.Parse(item.UnmergeLotCount).ToString("N0"))</span></span>
+                         }
+                         <span class="pull-right increaseMe">Lots: <span class="increaseMe2">@(Int32.Parse(item.LotCount).ToString("N0"))</span></span>
+                     </h4>
+                 </div>
+             </div>
+             <div id="@item.CollapseIdentifier" class="panel-collapse collapse">
+                 <div class="panel-body">
+                     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
+                         @Html.DisplayFor(poop => item.Units, "UploadUnitsTable")
+                     </div>
+                 </div>
+             </div>
+         </div>
+	}
+</div>

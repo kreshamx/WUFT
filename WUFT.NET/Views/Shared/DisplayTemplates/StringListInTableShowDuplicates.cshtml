@@ -1,0 +1,16 @@
+﻿@model List<Tuple<string,bool>>
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        if (item.Item2)
+        {
+            <li data-toggle="tooltip" data-placement="top" title="This box is on multiple requests!" class="orange-text" style="font-weight:bold">@item.Item1</li>
+        }
+        else
+        {
+            <li>@item.Item1</li>
+        }
+    }
+</ul>
+
+

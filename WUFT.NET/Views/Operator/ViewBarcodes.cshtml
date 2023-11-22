@@ -1,0 +1,92 @@
+﻿@model WUFT.NET.ViewModels.Operator.OperatorBarcodeViewModel
+
+@{
+    ViewBag.Title = "Print WUFT Request";
+}
+
+<div style="margin-top: -70px;">
+    @if (Model.InvalidID)
+    {
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="intel-panel intel-panel-top-peel clear-fix">
+                    <div class="intel-panel-heading">
+                        <h3>Invalid Request ID</h3>
+                    </div>
+                    <div class="intel-panel-body">
+                        <h2 style="color:darkred; text-align:center;">The URL you entered has an invalid request ID.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row" id="printSheet">
+            @if (Model.FlaggedUnitGroups.Count == 0)
+            {
+                <table>
+                    <tr class="pull-center">
+                        <td colspan="3">No flagged units in this request!</td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <div class="row margin10LR pull-center hidden-print">
+                    <button class="btn-lg btn-primary btn" onclick="PrintBarcodeSheet()">
+                        <span class="glyphicon glyphicon-print" style="font-size: 1.0em;" aria-hidden="true"> Print</span>
+                    </button>
+                </div>
+                <h1 class="pull-center margin10TB">WUFT @Model.Disposition Request </h1>
+                <div class="row">
+                    <table class="table-bordered table-striped table-hover" style="width:50%; margin:0 auto;">
+                        <tr>
+                            <th>@Html.LabelFor(x => x.MRBID)</th>
+                            <td class="pull-center margin10TB">
+                                <p class="div-barcode center-block" style="margin-top:15px;">*@Html.DisplayFor(x => x.MRBID)*</p>
+                                <p>@Html.DisplayFor(x=>x.MRBID)</p>
+                            </td>
+                        </tr>
+                        <tr><th>@Html.LabelFor(x => x.Warehouse)</th><td class="pull-center">@Html.DisplayFor(x => x.Warehouse)</td></tr>
+                        <tr><th>@Html.LabelFor(x => x.Disposition)</th><td class="pull-center">@Html.DisplayFor(x => x.Disposition)</td></tr>
+                        <tr><th>@Html.LabelFor(x => x.Mode)</th><td class="pull-center">@Html.DisplayFor(x => x.Mode)</td></tr>
+                        <tr><th>@Html.LabelFor(x => x.CreatedBy)</th><td class="pull-center">@Html.DisplayFor(x => x.CreatedBy)</td></tr>
+                        <tr><th>@Html.LabelFor(x => x.CreatedOn)</th><td class="pull-center">@Html.DisplayFor(x => x.CreatedOn, "DateTime")</td></tr>
+                    </table>
+                </div>
+                <div class="barcodes-page margin20TB">
+                    <div class="row margin10">
+                        <table class="table table-bordered table-striped table-hover" style="width:90%; margin:0 auto;">
+                            <thead>
+                                <tr>
+                                    <th class="pull-center">Lot ID</th>
+                                    <th class="pull-center">Box ID</th>
+                                    @if(Model.Disposition != "Demix for Scrap")
+                                    {<th class="pull-center">Unmerge Lot ID</th>}
+                                    <th class="pull-center">Flag Qty</th>
+                                    <th class="pull-center">Request Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @Html.EditorFor(model => model.FlaggedUnitGroups)
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    }
+</div>
+
+<script>
+    window.onunload = refreshParent;
+    function refreshParent() {
+        window.opener.location.reload();
+    };
+   function PrintBarcodeSheet() {
+        window.print();
+    }
+</script>

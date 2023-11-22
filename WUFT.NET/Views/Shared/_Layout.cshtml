@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/content/bundled-styles")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <header>
+        @if (ViewContext.RouteData.Values["action"].ToString() == "ViewBarcodes")
+        {
+            //Hides Navbar
+        }
+        else if(User.IsInRole("ISE Logistics_WUFT_Admin") || System.Configuration.ConfigurationManager.AppSettings["TestRole"] == "Admin")
+        {
+            @RenderPage("_adminNavigation.cshtml")
+        }
+        else if (User.IsInRole("ISE Logistics_WUFT_QRE") || System.Configuration.ConfigurationManager.AppSettings["TestRole"] == "QRE")
+        {
+            @RenderPage("_qreNavigation.cshtml")
+        }
+        else if (User.IsInRole("ISE Logistics_WUFT_Operator") || System.Configuration.ConfigurationManager.AppSettings["TestRole"] == "Operator")
+        {
+            @RenderPage("_operatorNavigation.cshtml")
+        }
+        else
+        {
+            @RenderPage("_navigation.cshtml")
+        }
+    </header>
+
+    <div class="container-fluid body-content">
+        <main>
+            
+            <noscript>
+                <br /><div id="noscript-warning" class="alert text-center alert-danger"><strong>This application requires that JavaScript be enabled.</strong></div><br />
+            </noscript>
+            <br />
+            @RenderBody()
+            @*<hr />*@
+        </main>
+        <div class="loadingOverlay" style="display:none;">
+            <div class="wrapper">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="loadingText">LOADING...</div>
+            </div>
+        </div>
+        <footer>
+@if (ViewContext.RouteData.Values["action"].ToString() == "ViewBarcodes")
+{
+    //hides footer
+}
+else
+{ 
+            <div class="page-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-4 text-left">&copy; @DateTime.Now.Year - Intel Corporation</div>
+                        <div class="col-xs-4 text-center">Build: @typeof(WUFT.NET.MvcApplication).Assembly.GetName().Version</div>
+                        <div class="col-xs-4 text-right" id="Welcome">
+                           @User.Identity.Name
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+        </footer>
+    </div>
+
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/wuft")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var dt = new Date();
+            var tzo = dt.getTimezoneOffset();
+            document.cookie = "timeZoneOffset=" + tzo + "; path=/";
+
+        });
+
+
+        $('#help').click(function () {
+
+            window.open('URL Needs to be added.', "WindowPopup", 'width=800px,height=700px,scrollbars=1');
+            this.blur();
+        });
+
+    </script>
+    <script src="http://asat.intel.com/shared/apptracker.min.js"></script>
+    <script type="text/javascript">
+        AppTracker('81-103-3').usage('Viewed page');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+﻿@model List<WUFT.NET.ViewModels.QRE.FlaggedBoxLineItem>
+
+<table class="table table-bordered table-striped table-hover" style="width:90%; margin:0 auto;">
+    <thead>
+        <tr>
+            <th class="pull-center" style="vertical-align:middle">Box ID</th>
+            <th class="pull-center" style="vertical-align:middle">Lot ID</th>
+            @if (!String.IsNullOrEmpty(Model.FirstOrDefault().UnmergeLotID))
+            {
+                <th class="pull-center" style="vertical-align:middle">Unmerge Lot ID</th>
+            }
+            <th class="pull-center" style="vertical-align:middle">Unit Count</th>
+            <th class="pull-center" style="vertical-align:middle">Request Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count == 0)
+        {
+            <tr class="pull-center">
+                <td colspan="3">No flagged boxes in this request!</td>
+            </tr>
+        }
+        else
+        {
+            @Html.EditorFor(model => model, "FlaggedBoxLineItem")
+        }
+    </tbody>
+</table>
+

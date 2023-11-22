@@ -1,0 +1,13 @@
+﻿@model WUFT.NET.ViewModels.Admin.FlaggedBoxLineItem
+
+<tr class="pull-center">
+    @Html.HiddenFor(x => x.GoodBoxID)
+    <td>@Html.DisplayFor(x => x.GoodBoxID)</td>
+    <td>@Html.DisplayFor(x => x.LotID)</td>
+    @if (!String.IsNullOrEmpty(Model.UnmergeLotID))
+    {
+    <td>@Html.DisplayFor(x => x.UnmergeLotID)</td>
+    }
+    <td>@Html.DisplayFor(x => x.BadVisualIDCount)</td>
+    <td>@Html.DropDownListFor(x => x.BoxRequestStatus, Model.Statuses, new {@class="form-control"})</td>
+</tr>

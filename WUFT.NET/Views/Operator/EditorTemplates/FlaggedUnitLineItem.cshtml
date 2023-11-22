@@ -1,0 +1,15 @@
+﻿@model WUFT.NET.ViewModels.Operator.FlaggedUnitLineItem
+
+<tr class="pull-center">
+    <td>@Html.DisplayFor(x => x.BoxID)</td>
+    <td>@Html.DisplayFor(x => x.LotID)</td>
+    @if (!String.IsNullOrEmpty(Model.UnmergeLotID))
+    {
+        <td>@Html.DisplayFor(x => x.UnmergeLotID)</td>
+    }
+    <td>@Html.DisplayFor(x => x.VisualIDCount)</td>
+    <td>@Html.DisplayFor(x=>x.BoxRequestStatus)</td>
+</tr>
+
+
+

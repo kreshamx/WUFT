@@ -1,0 +1,92 @@
+﻿@model WUFT.NET.ViewModels.Shared.RequestIndexParentViewModel
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+
+<div class="row">
+    @using (Html.BeginForm("UpdateRequests", "Admin", FormMethod.Post, new { onsubmit = "adminSave()", enctype = "multipart/form-data", @id = "AdminIndex" }))
+    {
+        @Html.HiddenFor(model => model.IdList, new { @id = "idList" })
+        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-12">
+                        <h2 class="col-xs-6">WUFT Admin</h2>
+                    </div>
+                    @*Newly added code by rshanm3x for adding date filter functionality*@
+
+                        <div class="form-group col-xs-12">
+
+                            <div class="row margin10TB">
+                                @*<div class="pull-left">
+                                    <label>Warehouse:</label>
+                                    @Html.DropDownListFor(model => model.SelectedWarehouse, Model.Warehouses, null, new { @id = "reportWarehouse", @class = "form-control" })
+                                </div>*@
+                                <div class="input-append date pull-left margin10LR">
+                                    <label>Start Date:</label>
+                                    @Html.TextBoxFor(x => x.TimePeriodStart, new { @id = "startDate", data_provide = "datepicker", @class = "form-control" })
+                        <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <div class="input-append date pull-left">
+                                    <label>End Date:</label>
+                                    @Html.TextBoxFor(x => x.TimePeriodEnd, new { @id = "endDate", data_provide = "datepicker", @class = "form-control" })
+                        <span class="add-on"><i class="icon-th"></i></span>
+                                </div>
+                                <input class="btn btn-primary pull-left margin10LR" style="margin-top: 25px;" type="submit" value="Update Requests" />
+                                @*<input class="btn btn-default pull-left" style="margin-top: 25px;" type="button" onclick="clearFilters()" value="Clear Filters" />*@
+                                @*<input class="btn btn-primary pull-right" style="margin-top: 25px;" type="submit" value="Export Selected Request(s)" />*@
+                                @*<button class="btn btn-primary pull-right margin10TB" style="margin-top: 25px;" type="submit">
+                                    Save Changes
+                                </button>*@
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>All Unit Flag Requests</h3>
+                </div>
+                <div class="intel-panel-body" id="requestTable">
+                    <input class="search form-control" style="margin-bottom: 10px" placeholder="search by MRB number, box ID, lot ID, disposition, warehouse, requestor, or status" />
+                    <table class="table table-bordered table-striped table-hover" id="qreIndexTable">
+                        <thead>
+                            <tr>
+                                <th class="pull-center sort" data-sort="MRBID" style="vertical-align: top">MRB Number</th>
+                                <th class="pull-center sort" data-sort="Disposition" style="vertical-align: top">Disposition</th>
+                                <th class="pull-center sort" data-sort="LotID" style="vertical-align: top">Lot IDs</th>
+                                @*<th class="pull-center sort" data-sort="UnmergeLotID" style="vertical-align: top">Unmerge Lot IDs</th>*@
+                                <th class="pull-center sort" data-sort="BoxID" style="vertical-align: top">Box IDs</th>
+                                <th class="pull-center sort" data-sort="UnitQty" style="vertical-align: top">Unit Qty</th>
+                                <th class="pull-center sort" data-sort="Warehouse" style="vertical-align: top">Warehouse</th>
+                                <th class="pull-center sort" data-sort="Requestor" style="vertical-align: top">Requestor</th>
+                                <th class="pull-center sort" data-sort="RequestDate" style="vertical-align: top">Request Date</th>
+                                <th class="pull-center sort" data-sort="RequestStatus" style="vertical-align: top">Request Status</th>
+                                <th class="pull-center" style="vertical-align: top">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @if (Model.Requests.Count == 0)
+                            {
+                                <tr class="pull-center">
+                                    <td colspan="13">No Requests!</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                for (var i = 0; i < Model.Requests.Count; i++)
+                                {
+                                    @Html.EditorFor(model => model.Requests[i])
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

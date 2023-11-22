@@ -1,0 +1,58 @@
+﻿@model WUFT.NET.ViewModels.QRE.ViewRequestViewModel
+
+@{
+    ViewBag.Title = "View Request";
+}
+
+@if (Model.InvalidID)
+{
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="intel-panel intel-panel-top-peel clear-fix">
+                <div class="intel-panel-heading">
+                    <h3>Invalid Request ID</h3>
+                </div>
+                <div class="intel-panel-body">
+                    <h2 style="color:darkred; text-align:center;">The URL you entered has an invalid request ID.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        @using (Html.BeginForm("ExportQREViewRequest", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(model => model.RequestID, new { @id = "requestID" })
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-xs-12">
+                <div class="form-group clearfix">
+                    <input class="btn btn-default pull-left" type="button" onclick="showLoading(); window.location.href='/QRE'" value="Go To All Requests" />
+                    <button class="btn btn-primary pull-right" type="submit">
+                        <span class="glyphicon glyphicon-save icon" style="color:white; font-size:1.1em; margin-right:10px;" aria-hidden="true"></span>Export Request
+                    </button>
+                </div>
+
+                <div class="intel-panel intel-panel-top-peel">
+                    <div class="intel-panel-heading">
+                        <h3>Unit @Model.Disposition Request for @Model.Warehouse</h3>
+                    </div>
+                    <div class="intel-panel-body">
+                        @Html.Partial("_ViewRequestSummary", Model)
+                        <div class="row">
+                            @if (Model.RequestStatus == "New Request" || Model.RequestStatus == "In Process")
+                            {
+                                @Html.Partial("_NewOrInProcessRequestTable", Model.FlaggedBoxes)
+                            }
+                            else
+                            {
+                                @Html.Partial("_CompletedRequestTable", Model.CompletedBoxes)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+

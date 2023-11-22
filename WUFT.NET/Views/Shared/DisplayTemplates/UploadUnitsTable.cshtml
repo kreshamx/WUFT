@@ -1,0 +1,30 @@
+﻿@model ICollection<WUFT.NET.ViewModels.QRE.UploadUnitsLineItem>
+
+<table class="table-striped table table-bordered">
+    <thead>
+        <tr>
+            <th>Lot ID</th>
+            @if(!String.IsNullOrEmpty(Model.FirstOrDefault().UnmergeLotID))
+            {
+                <th>Unmerge Lot ID</th>
+            }
+            <th>Box ID</th>
+            <th>Unit Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>@row.LotID</td>
+                @if(!String.IsNullOrEmpty(row.UnmergeLotID))
+                {
+                    <td>@row.UnmergeLotID</td>
+                }
+                <td>@row.BoxID</td>
+                <td>@(Int32.Parse(row.UnitQty).ToString("N0"))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,15 @@
+﻿@model List<WUFT.NET.ViewModels.QRE.FlaggedBoxLineItem>
+
+@foreach (var box in Model)
+{
+    <tr class="pull-center">
+        <td>@Html.DisplayFor(x => box.GoodBoxID)</td>
+        <td>@Html.DisplayFor(x => box.LotID)</td>
+        @if (!String.IsNullOrEmpty(box.UnmergeLotID))
+        {
+            <td>@Html.DisplayFor(x => box.UnmergeLotID)</td>
+        }
+        <td>@Html.DisplayFor(x => box.BadVisualIDCount)</td>
+        <td>@Html.DisplayFor(x => box.BoxRequestStatus)</td>
+    </tr>
+}

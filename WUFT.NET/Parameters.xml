@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters >
+  <parameter name="FileUploadLocation" description="Location for excel file uploads from the user." defaultValue="__FileUploadLocation__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/appSettings/add[@key='FileUploadLocation']/@value" />
+  </parameter>
+  <parameter name="BaseURL" description="URL For Emails" defaultValue="__BaseURL__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/appSettings/add[@key='BaseURL']/@value" />
+  </parameter>
+  <parameter name="ISESupportURL" description="URL for submitting a support ticket." defaultValue="__ISESupportURL__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/appSettings/add[@key='ISESupportURL']/@value" />
+  </parameter>
+  <parameter name="SendEmails" description="Bool to turn sending emails on and off for entire site." defaultValue="__SendEmails__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/appSettings/add[@key='SendEmails']/@value" />
+  </parameter>
+  <parameter name="SMTPHost" description="SMTP Host" defaultValue="__SMTPHost__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/system.net/mailSettings/smtp/network/@host" />
+  </parameter>
+  <parameter name="SMTPPort" description="SMTP Port" defaultValue="__SMTPPort__" tags="">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/system.net/mailSettings/smtp/network/@port" />
+  </parameter>
+  <parameter name="SubjectPrefix" description="Email Subject Prefix" defaultValue="__SubjectPrefix__" tags="">
+    <parameterEntry kind="XmlFile" scope ="\\web.config$" match="/configuration/EmailerConfiguration/Settings/@subjectPrefix" />
+  </parameter>
+</parameters>
