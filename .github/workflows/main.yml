@@ -1,110 +1,33 @@
-
-# This is a basic workflow to help you get started with Actions
-
-name: WUFT
-
-# Controls when the workflow will run
+name: Auto build WUFT.
 on:
-  # Triggers the workflow on push or pull request events but only for the Development_Original branch
   
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+  #Allow automatically to test new runner
+  push: 
+    branches: 
+      - Dev*
 jobs:
-  # This workflow contains a single job called "build"
-  
-  build:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  job-vm-auto-build-dev-server:
+    runs-on: [self-hosted]
+    defaults:
+      run:
+        shell: cmd
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-    
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Allow download long file.
+        run: git config --system core.longpaths true
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo echo STAGE --> %CI_JOB_STAGE%,
-          echo MsBuild Path -  %MSBuild%,
-          echo building the solution projects...
-          & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe'C:\Karthik\ISET\wuft-development-2023\wuft-development-2023\WUFT.NET\WUFT.NET.csproj /target:clean
-          & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe'C:\Karthik\ISET\wuft-development-2023\wuft-development-2023\WUFT.NET\WUFT.NET.csproj /target:Build
-  publish:
-     
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    needs: [build]
-    #environment:
-      #name: test environment
+      - name: Exact branch.
+        uses: actions/checkout@v2
+        
+      - name: Clean build directory.
+        run: if exist Codebuild (rmdir /s/q Codebuild)
+        working-directory: ../
 
-      # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+      - name: Copy source code to build directory.
+        run: xcopy "WUFT" "Codebuild" /s /y /e /i
+        working-directory: ../
 
-        # Runs a set of commands using the runners shell
-        - name: Run a multi-line script
-          run: |
-             echo STAGE --> %CI_JOB_STAGE%
-             & 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe'C:\Karthik\ISET\wuft-development-2023\wuft-development-2023\WUFT.NET\WUFT.NET.csproj /t:build /p:outdir=obj\ /p:Configuration=Release /p:Platform="AnyCPU"  
-
-  removing_WebConfig:
-      
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    needs: [publish]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-
-       #Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-           echo Deleting web.config....
-           Remove-Item -Path 
-
-  envirnoment_backup:
-      
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    needs: [removing_WebConfig]
-    environment:
-      name: backuping files
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-
-       #Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          $dt = get-date -format "MM-dd-yyyy-hhmmss"
-          $currDir = ""
-          $bkpDir = ""
-          echo $currDir
-          echo $bkpDir
-          if (-not (Test-Path $bkpDir)) { mkdir $bkpDir }
-          xcopy $currDir $bkpDir /E/Y
-
-  deploy_Dev:
-      
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    needs: [envirnoment_backup]
-    environment:
-      name: Dev environment
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-
-       #Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          $source="C:\Karthik\ISET\wuft-development-2023\wuft-development-2023\WUFT.NET\WUFT.NET"
-          $dest=""
-          robocopy $source $dest /E /DCOPY:DAT /R:10 /W:3; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null } 
+      - name: Build projects
+        run: npm run build
+        env:
+          CI: ""
+          working-directory: ../Codebuild
