@@ -1,6 +1,5 @@
 name: Auto build WUFT.
 on:
-  #Allow automatically to test new runner
   push: 
     branches: 
       - Dev*
